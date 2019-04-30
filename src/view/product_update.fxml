@@ -35,15 +35,15 @@
             <Label prefHeight="17.0" prefWidth="167.0" text="Price" GridPane.rowIndex="2" />
             <Label alignment="BOTTOM_LEFT" prefHeight="17.0" prefWidth="167.0" text="Quantity" GridPane.rowIndex="3" />
             <Label alignment="BOTTOM_LEFT" prefHeight="17.0" prefWidth="167.0" text="Description" GridPane.rowIndex="4" />
-            <TextField prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" />
-            <TextField prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextArea prefHeight="24.0" prefWidth="152.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <TextField fx:id="nameTxtView" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" />
+            <TextField fx:id="priceTxtView" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="quantityTxtView" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextArea fx:id="descriptionTxtField" prefHeight="24.0" prefWidth="152.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets top="10.0" />
                </GridPane.margin>
             </TextArea>
-            <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="157.0" text="MenuButton" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <MenuButton fx:id="categoryMenuBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="157.0" text="MenuButton" GridPane.columnIndex="1" GridPane.rowIndex="1">
               <items>
                 <MenuItem mnemonicParsing="false" text="Action 1" />
                 <MenuItem mnemonicParsing="false" text="Action 2" />

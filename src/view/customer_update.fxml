@@ -16,7 +16,7 @@
       <HBox layoutX="85.0" layoutY="92.0" prefHeight="34.0" prefWidth="305.0">
          <children>
             <Label prefHeight="25.0" prefWidth="83.0" text="Customer ID :" />
-            <TextField prefHeight="25.0" prefWidth="151.0" />
+            <TextField fx:id="customerIdTxtView" prefHeight="25.0" prefWidth="151.0" />
          </children>
       </HBox>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="113.0" layoutY="14.0" prefHeight="48.0" prefWidth="195.0" text="Update Customer" textAlignment="CENTER" />
@@ -41,21 +41,21 @@
             <Label alignment="BOTTOM_LEFT" prefHeight="17.0" prefWidth="167.0" text="Mobile :" GridPane.rowIndex="3" />
             <Label alignment="BOTTOM_LEFT" prefHeight="17.0" prefWidth="167.0" text="Email :" GridPane.rowIndex="4" />
             <Label alignment="BOTTOM_LEFT" prefHeight="17.0" prefWidth="167.0" text="Address :" GridPane.rowIndex="5" />
-            <TextField prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" />
-            <TextField prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="idTxtView" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" />
+            <TextField fx:id="fnameTxtView" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="lnameTxtView" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="mobileTxtView" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="emailTxtView" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="addressTxtView" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Label alignment="BOTTOM_LEFT" prefHeight="17.0" prefWidth="167.0" text="Gender :" GridPane.rowIndex="6" />
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <children>
-                  <RadioButton mnemonicParsing="false" text="Male">
+                  <RadioButton fx:id="maleRBtn" mnemonicParsing="false" text="Male">
                      <HBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="Female">
+                  <RadioButton fx:id="femaleRBtn" mnemonicParsing="false" text="Female">
                      <HBox.margin>
                         <Insets left="20.0" top="10.0" />
                      </HBox.margin>

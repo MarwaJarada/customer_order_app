@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="429.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CustomerAdd">
+<AnchorPane prefHeight="429.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddCustomerController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="113.0" layoutY="14.0" prefHeight="48.0" prefWidth="195.0" text="Add Customer" textAlignment="CENTER" />
       <GridPane layoutX="92.0" layoutY="84.0" prefHeight="240.0" prefWidth="238.0">
@@ -35,21 +35,21 @@
             <Label alignment="BOTTOM_LEFT" prefHeight="17.0" prefWidth="167.0" text="Mobile :" GridPane.rowIndex="3" />
             <Label alignment="BOTTOM_LEFT" prefHeight="17.0" prefWidth="167.0" text="Email :" GridPane.rowIndex="4" />
             <Label alignment="BOTTOM_LEFT" prefHeight="17.0" prefWidth="167.0" text="Address :" GridPane.rowIndex="5" />
-            <TextField prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" />
-            <TextField prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="idTxtField" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" />
+            <TextField fx:id="fnameTxtField" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="lnameTxtField" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="mobileTxtField" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="emailTxtField" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="addressTxtField" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Label alignment="BOTTOM_LEFT" prefHeight="17.0" prefWidth="167.0" text="Gender :" GridPane.rowIndex="6" />
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <children>
-                  <RadioButton mnemonicParsing="false" text="Male">
+                  <RadioButton fx:id="maleRBtn" mnemonicParsing="false" text="Male">
                      <HBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="Female">
+                  <RadioButton fx:id="femaleRBtn" mnemonicParsing="false" text="Female">
                      <HBox.margin>
                         <Insets left="20.0" right="10.0" top="10.0" />
                      </HBox.margin>
@@ -58,8 +58,8 @@
             </HBox>
          </children>
       </GridPane>
-      <Button defaultButton="true" layoutX="110.0" layoutY="347.0" mnemonicParsing="false" onAction="#addCustomer" prefHeight="25.0" prefWidth="70.0" text="Add" />
-      <Button layoutX="261.0" layoutY="347.0" mnemonicParsing="false" onAction="#clear" prefHeight="25.0" prefWidth="70.0" text="Clear" />
-      <Button layoutX="186.0" layoutY="347.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="70.0" text="Cancel" />
+      <Button defaultButton="true" layoutX="110.0" layoutY="347.0" mnemonicParsing="false" onAction="#addCustomerBtn" prefHeight="25.0" prefWidth="70.0" text="Add" />
+      <Button layoutX="261.0" layoutY="347.0" mnemonicParsing="false" onAction="#clearBtn" prefHeight="25.0" prefWidth="70.0" text="Clear" />
+      <Button layoutX="186.0" layoutY="347.0" mnemonicParsing="false" onAction="#cancelBtn" prefHeight="25.0" prefWidth="70.0" text="Cancel" />
    </children>
 </AnchorPane>

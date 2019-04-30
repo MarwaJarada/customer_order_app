@@ -23,7 +23,7 @@
                   <Insets left="30.0" />
                </HBox.margin>
             </Label>
-            <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="MenuButton">
+            <MenuButton fx:id="categorymenuBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="MenuButton">
               <items>
                 <MenuItem mnemonicParsing="false" text="Action 1" />
                 <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -32,7 +32,7 @@
                   <Insets left="15.0" />
                </HBox.margin>
             </MenuButton>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Search">
+            <Button mnemonicParsing="false" onAction="#search" prefHeight="25.0" prefWidth="80.0" text="Search">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>

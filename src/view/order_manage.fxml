@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="454.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.OrderManage">
+<AnchorPane prefHeight="454.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ManageOrderController">
    <children>
       <GridPane layoutX="84.0" layoutY="73.0" prefHeight="171.0" prefWidth="292.0">
         <columnConstraints>
@@ -42,15 +42,15 @@
                   <MenuItem mnemonicParsing="false" text="Action 2" />
                </items>
             </MenuButton>
-            <TextField fx:id="quantityTxtView" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="orderDateTxtView" layoutX="147.0" layoutY="105.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="quantityTxtField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="orderDateTxtField" layoutX="147.0" layoutY="105.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
       <Label alignment="CENTER" layoutX="136.0" layoutY="19.0" prefHeight="37.0" prefWidth="166.0" text="Orders" />
       <Button layoutX="85.0" layoutY="270.0" mnemonicParsing="false" onAction="#insertOrder" prefHeight="25.0" prefWidth="92.0" text="Insert Order" />
       <Button layoutX="182.0" layoutY="270.0" mnemonicParsing="false" onAction="#showOrders" prefHeight="25.0" prefWidth="119.0" text="Show All Orders" />
       <Button layoutX="305.0" layoutY="270.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="71.0" text="Cancel" />
-      <TableView layoutX="10.0" layoutY="317.0" prefHeight="126.0" prefWidth="440.0">
+      <TableView fx:id="tableOrder" layoutX="10.0" layoutY="317.0" prefHeight="126.0" prefWidth="440.0">
         <columns>
           <TableColumn prefWidth="88.0" text="C1" />
           <TableColumn prefWidth="88.0" text="C2" />

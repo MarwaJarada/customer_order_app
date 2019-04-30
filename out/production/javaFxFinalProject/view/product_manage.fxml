@@ -11,27 +11,27 @@
       <VBox layoutX="5.0" layoutY="6.0" prefHeight="360.0" prefWidth="330.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="96.0" prefWidth="330.0" text="Manage Product Menu" />
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="190.0" text="Add Product" VBox.vgrow="ALWAYS">
+            <Button mnemonicParsing="false" onAction="#addProductView" prefHeight="30.0" prefWidth="190.0" text="Add Product" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets left="70.0" />
                </VBox.margin>
             </Button>
-            <Button layoutX="80.0" layoutY="106.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="190.0" text="Update Product">
+            <Button layoutX="80.0" layoutY="106.0" mnemonicParsing="false" onAction="#updateProductView" prefHeight="30.0" prefWidth="190.0" text="Update Product">
                <VBox.margin>
                   <Insets left="70.0" top="20.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="190.0" text="Delete Product">
+            <Button mnemonicParsing="false" onAction="#deleteProductView" prefHeight="30.0" prefWidth="190.0" text="Delete Product">
                <VBox.margin>
                   <Insets left="70.0" top="20.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="190.0" text="Search Product">
+            <Button mnemonicParsing="false" onAction="#sreachProductView" prefHeight="30.0" prefWidth="190.0" text="Search Product">
                <VBox.margin>
                   <Insets left="70.0" top="20.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="190.0" text="Main Menu">
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#mainMenu" prefHeight="30.0" prefWidth="190.0" text="Main Menu">
                <VBox.margin>
                   <Insets left="70.0" top="20.0" />
                </VBox.margin>

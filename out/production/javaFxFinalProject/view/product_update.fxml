@@ -3,8 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
@@ -35,24 +35,24 @@
             <Label prefHeight="17.0" prefWidth="167.0" text="Price" GridPane.rowIndex="2" />
             <Label alignment="BOTTOM_LEFT" prefHeight="17.0" prefWidth="167.0" text="Quantity" GridPane.rowIndex="3" />
             <Label alignment="BOTTOM_LEFT" prefHeight="17.0" prefWidth="167.0" text="Description" GridPane.rowIndex="4" />
-            <TextField prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" />
-            <TextField prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <SplitMenuButton mnemonicParsing="false" prefWidth="158.0" text="SplitMenuButton" GridPane.columnIndex="1" GridPane.rowIndex="1">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
-              </items>
-            </SplitMenuButton>
-            <TextArea prefHeight="24.0" prefWidth="152.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <TextField fx:id="nameTxtView" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" />
+            <TextField fx:id="priceTxtView" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="quantityTxtView" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextArea fx:id="descriptionTxtField" prefHeight="24.0" prefWidth="152.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets top="10.0" />
                </GridPane.margin>
             </TextArea>
+            <MenuButton fx:id="categoryMenuBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="157.0" text="MenuButton" GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" text="Action 2" />
+              </items>
+            </MenuButton>
          </children>
       </GridPane>
-      <Button layoutX="248.0" layoutY="210.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Cancel" />
-      <Button layoutX="247.0" layoutY="481.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Confirm" />
+      <Button layoutX="248.0" layoutY="210.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="80.0" text="Cancel" />
+      <Button defaultButton="true" layoutX="247.0" layoutY="481.0" mnemonicParsing="false" onAction="#confirm" prefHeight="25.0" prefWidth="79.0" text="Confirm" />
       <TableView layoutY="48.0" prefHeight="157.0" prefWidth="421.0">
         <columns>
           <TableColumn prefWidth="84.0" text="Name" />
@@ -62,7 +62,7 @@
             <TableColumn prefWidth="84.0" text="Description" />
         </columns>
       </TableView>
-      <Button layoutX="77.0" layoutY="210.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Update" />
-      <Button layoutX="162.0" layoutY="210.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Refresh" />
+      <Button defaultButton="true" layoutX="77.0" layoutY="210.0" mnemonicParsing="false" onAction="#updateProduct" prefHeight="25.0" prefWidth="80.0" text="Update" />
+      <Button layoutX="162.0" layoutY="210.0" mnemonicParsing="false" onAction="#refreshProducts" prefHeight="25.0" prefWidth="80.0" text="Refresh" />
    </children>
 </AnchorPane>

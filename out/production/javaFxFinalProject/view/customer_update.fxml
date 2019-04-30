@@ -11,10 +11,16 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="429.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddCustomerController">
+<AnchorPane prefHeight="497.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CustomerAdd">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="113.0" layoutY="14.0" prefHeight="48.0" prefWidth="195.0" text="Add Customer" textAlignment="CENTER" />
-      <GridPane layoutX="92.0" layoutY="84.0" prefHeight="240.0" prefWidth="238.0">
+      <HBox layoutX="85.0" layoutY="92.0" prefHeight="34.0" prefWidth="305.0">
+         <children>
+            <Label prefHeight="25.0" prefWidth="83.0" text="Customer ID :" />
+            <TextField fx:id="customerIdTxtView" prefHeight="25.0" prefWidth="151.0" />
+         </children>
+      </HBox>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="113.0" layoutY="14.0" prefHeight="48.0" prefWidth="195.0" text="Update Customer" textAlignment="CENTER" />
+      <GridPane layoutX="81.0" layoutY="170.0" prefHeight="240.0" prefWidth="238.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.0" minWidth="10.0" prefWidth="72.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.0" minWidth="10.0" prefWidth="138.0" />
@@ -35,12 +41,12 @@
             <Label alignment="BOTTOM_LEFT" prefHeight="17.0" prefWidth="167.0" text="Mobile :" GridPane.rowIndex="3" />
             <Label alignment="BOTTOM_LEFT" prefHeight="17.0" prefWidth="167.0" text="Email :" GridPane.rowIndex="4" />
             <Label alignment="BOTTOM_LEFT" prefHeight="17.0" prefWidth="167.0" text="Address :" GridPane.rowIndex="5" />
-            <TextField fx:id="idTxtField" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" />
-            <TextField fx:id="fnameTxtField" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="lnameTxtField" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="mobileTxtField" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="emailTxtField" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField fx:id="addressTxtField" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="idTxtView" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" />
+            <TextField fx:id="fnameTxtView" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="lnameTxtView" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="mobileTxtView" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="emailTxtView" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="addressTxtView" prefHeight="24.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Label alignment="BOTTOM_LEFT" prefHeight="17.0" prefWidth="167.0" text="Gender :" GridPane.rowIndex="6" />
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <children>
@@ -51,15 +57,15 @@
                   </RadioButton>
                   <RadioButton fx:id="femaleRBtn" mnemonicParsing="false" text="Female">
                      <HBox.margin>
-                        <Insets left="20.0" right="10.0" top="10.0" />
+                        <Insets left="20.0" top="10.0" />
                      </HBox.margin>
                   </RadioButton>
                </children>
             </HBox>
          </children>
       </GridPane>
-      <Button defaultButton="true" layoutX="110.0" layoutY="347.0" mnemonicParsing="false" onAction="#addCustomerBtn" prefHeight="25.0" prefWidth="70.0" text="Add" />
-      <Button layoutX="261.0" layoutY="347.0" mnemonicParsing="false" onAction="#clearBtn" prefHeight="25.0" prefWidth="70.0" text="Clear" />
-      <Button layoutX="186.0" layoutY="347.0" mnemonicParsing="false" onAction="#cancelBtn" prefHeight="25.0" prefWidth="70.0" text="Cancel" />
+      <Button layoutX="260.0" layoutY="435.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="70.0" text="Cancel" />
+      <Button defaultButton="true" layoutX="184.0" layoutY="434.0" mnemonicParsing="false" onAction="#updateCustomer" prefHeight="25.0" prefWidth="70.0" text="Update" underline="true" />
+      <Button defaultButton="true" layoutX="265.0" layoutY="126.0" mnemonicParsing="false" text="Search" />
    </children>
 </AnchorPane>

@@ -11,22 +11,22 @@
       <VBox layoutX="5.0" layoutY="6.0" prefHeight="360.0" prefWidth="330.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="96.0" prefWidth="330.0" text="Main Menu" />
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="190.0" text="Manage Products" VBox.vgrow="ALWAYS">
+            <Button mnemonicParsing="false" onAction="#openManageProductView" prefHeight="30.0" prefWidth="190.0" text="Manage Products" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets left="70.0" />
                </VBox.margin>
             </Button>
-            <Button layoutX="80.0" layoutY="106.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="190.0" text="Manage Customers">
+            <Button layoutX="80.0" layoutY="106.0" mnemonicParsing="false" onAction="#openManageCustomerView" prefHeight="30.0" prefWidth="190.0" text="Manage Customers">
                <VBox.margin>
                   <Insets left="70.0" top="20.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="190.0" text="Manage Orders">
+            <Button mnemonicParsing="false" onAction="#openManageOrderView" prefHeight="30.0" prefWidth="190.0" text="Manage Orders">
                <VBox.margin>
                   <Insets left="70.0" top="20.0" />
                </VBox.margin>
             </Button>
-            <Button defaultButton="true" mnemonicParsing="false" prefHeight="30.0" prefWidth="190.0" text="LOGOUT">
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="190.0" text="LOGOUT">
                <VBox.margin>
                   <Insets left="70.0" top="20.0" />
                </VBox.margin>

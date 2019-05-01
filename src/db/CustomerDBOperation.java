@@ -1,12 +1,17 @@
 package db;
 
 import javafx.scene.control.TextField;
+
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class CustomerDBOperation {
     private static DbConnection dbConnection;
     private static Statement statement;
+    private static String query;
+    private static ResultSet resultSet;
 
     public static void addCustomer(TextField idtxt, TextField fnametxt, TextField lnametxt, TextField mobiletxt,
                                    TextField emailTxt,TextField addressTxt, String gender)
@@ -19,7 +24,7 @@ public class CustomerDBOperation {
         String address = addressTxt.getText();
         dbConnection = DbConnection.getConnection();
         statement = dbConnection.getStatement();
-        String query = "INSERT INTO CUSTOMER VALUES('" + id + "','" + fname + "','" + lname + "','" + mobile + "','" + email + "','" +
+        query = "INSERT INTO CUSTOMER VALUES('" + id + "','" + fname + "','" + lname + "','" + mobile + "','" + email + "','" +
                 address + "','" + gender + "')";
         statement.execute(query);
         System.out.println(statement.getUpdateCount() + "Inserted");
@@ -29,8 +34,35 @@ public class CustomerDBOperation {
 
     public static void deleteCustomer(){
         /**
-         * @// TODO: 5/1/2019 implenet query to delete customer
+         * @//TODO: 5/1/2019 implenet query to delete customer
          */
+    }
+
+    public static void manageCustomer(){
+        /**
+         * @// TODO: 5/1/2019 implement qury to manage customer
+         */
+    }
+
+    public static ArrayList<String> updateCustomer(TextField previousId) throws SQLException, ClassNotFoundException {
+        Long id=Long.parseLong(previousId.getText());
+        dbConnection = DbConnection.getConnection();
+        statement = dbConnection.getStatement();
+        query = "SELECT * FROM CUSTOMER WHERE id ='"+id+"'";
+        resultSet = statement.executeQuery(query);
+        resultSet.next();
+        ArrayList<String> previousCustomerDetails =
+                new ArrayList<String>();
+        previousCustomerDetails.add(String.valueOf(resultSet.getLong("id")));
+        previousCustomerDetails.add(resultSet.getString("fname"));
+        previousCustomerDetails.add(resultSet.getString("lname"));
+        previousCustomerDetails.add(String.valueOf(resultSet.getLong("mobile")));
+        previousCustomerDetails.add(resultSet.getString("email"));
+        previousCustomerDetails.add(resultSet.getString("address"));
+        previousCustomerDetails.add(resultSet.getString("gender"));
+        return previousCustomerDetails;
+
+
     }
 
 

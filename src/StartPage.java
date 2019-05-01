@@ -9,13 +9,12 @@ import javafx.stage.Stage;
 public class StartPage extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("view\\customer_add.fxml"));
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("view\\customer_update.fxml"));
         Parent parent=loader.load();
         Scene scene=new Scene(parent);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Login");
         DbConnection dbConnection=DbConnection.getConnection();
-
         primaryStage.show();
 
     }

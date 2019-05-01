@@ -66,6 +66,6 @@
       </GridPane>
       <Button layoutX="260.0" layoutY="435.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="70.0" text="Cancel" />
       <Button defaultButton="true" layoutX="184.0" layoutY="434.0" mnemonicParsing="false" onAction="#updateCustomer" prefHeight="25.0" prefWidth="70.0" text="Update" underline="true" />
-      <Button defaultButton="true" layoutX="265.0" layoutY="126.0" mnemonicParsing="false" text="Search" />
+      <Button defaultButton="true" layoutX="265.0" layoutY="126.0" mnemonicParsing="false" onAction="#serachCustomer" text="Search" />
    </children>
 </AnchorPane>

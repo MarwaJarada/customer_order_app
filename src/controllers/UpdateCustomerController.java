@@ -26,8 +26,17 @@ public class UpdateCustomerController {
     }
 
     public void updateCustomer(ActionEvent event) throws SQLException, ClassNotFoundException {
-        prevoiusCustomrtDetails=CustomerDBOperation.updateCustomer(customerIdTxtField);
+        String gender = null;
+        if (femaleRBtn.isSelected()) gender="female";
+        else if (maleRBtn.isSelected()) gender="male";
+        CustomerDBOperation.updateCustomer
+                (idTxtField,fnameTxtField,lnameTxtField,mobileTxtField,emailTxtField,addressTxtField,gender);
+    }
+
+    public void serachCustomer(ActionEvent event) throws SQLException, ClassNotFoundException {
+        prevoiusCustomrtDetails=CustomerDBOperation.searchCustomer(customerIdTxtField);
         idTxtField.setText(prevoiusCustomrtDetails.get(0));
+        idTxtField.setEditable(false);
         fnameTxtField.setText(prevoiusCustomrtDetails.get(1));
         lnameTxtField.setText(prevoiusCustomrtDetails.get(2));
         mobileTxtField.setText(prevoiusCustomrtDetails.get(3));

@@ -6,10 +6,10 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="375.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CustomerDelete">
+<AnchorPane prefHeight="375.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DeleteProductController">
    <children>
       <Label alignment="CENTER" layoutX="199.0" layoutY="61.0" prefHeight="40.0" prefWidth="202.0" text="Delete Product" />
-      <TableView layoutX="37.0" layoutY="113.0" prefHeight="175.0" prefWidth="527.0">
+      <TableView fx:id="deleteProductTable" layoutX="37.0" layoutY="113.0" prefHeight="175.0" prefWidth="527.0">
         <columns>
           <TableColumn prefWidth="75.0" text="ID" />
           <TableColumn prefWidth="75.0" text="First Name" />

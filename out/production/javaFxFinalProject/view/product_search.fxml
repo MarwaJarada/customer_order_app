@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane prefHeight="335.0" prefWidth="454.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ProductSearch">
+<AnchorPane prefHeight="335.0" prefWidth="454.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SearchProductController">
    <children>
       <Label alignment="CENTER" layoutX="150.0" layoutY="29.0" prefHeight="55.0" prefWidth="154.0" text="Search for product" textAlignment="CENTER" />
       <HBox layoutX="51.0" layoutY="84.0" prefHeight="30.0" prefWidth="348.0">
@@ -39,7 +39,7 @@
             </Button>
          </children>
       </HBox>
-      <TableView layoutX="1.0" layoutY="125.0" prefHeight="152.0" prefWidth="453.0">
+      <TableView fx:id="searchTable" layoutX="1.0" layoutY="125.0" prefHeight="152.0" prefWidth="453.0">
         <columns>
           <TableColumn prefWidth="90.6" text="Name" />
           <TableColumn prefWidth="90.6" text="Categorie" />

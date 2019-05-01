@@ -8,7 +8,11 @@ import java.sql.Statement;
 public class DbConnection {
     private static DbConnection dbConnection;
     private Connection connection;
-    Statement statement;
+    private Statement statement;
+
+    private DbConnection(){
+
+    }
 
 
     public static DbConnection getConnection(){
@@ -18,7 +22,7 @@ public class DbConnection {
 
     }
 
-    private void getStatement() throws ClassNotFoundException, SQLException {
+    public Statement getStatement() throws ClassNotFoundException, SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             this.connection = DriverManager.
@@ -29,6 +33,7 @@ public class DbConnection {
         }catch (Exception ex){
             ex.printStackTrace();
         }
+        return this.statement;
 
     }
 
@@ -41,7 +46,6 @@ public class DbConnection {
             ex.printStackTrace();
         }
     }
-
 
 
 

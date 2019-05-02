@@ -6,11 +6,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.RadioButton;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class UpdateCustomerController {
+    @FXML private AnchorPane customerUpdate;
     @FXML private TextField customerIdTxtField;
     @FXML private TextField idTxtField;
     @FXML private TextField fnameTxtField;
@@ -23,7 +26,8 @@ public class UpdateCustomerController {
     private ArrayList<String> prevoiusCustomrtDetails;
 
     public void cancel(ActionEvent event) {
-
+        Stage stage=(Stage)customerUpdate.getScene().getWindow();
+        stage.close();
     }
 
     public void updateCustomer(ActionEvent event) throws SQLException, ClassNotFoundException {

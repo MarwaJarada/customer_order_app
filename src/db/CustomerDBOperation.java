@@ -17,8 +17,13 @@ public class CustomerDBOperation {
     private static String gender ;
 
     public static void addCustomer(TextField idtxt, TextField fnametxt, TextField lnametxt, TextField mobiletxt,
-                                   TextField emailTxt,TextField addressTxt, String gender)
+                                   TextField emailTxt,TextField addressTxt, RadioButton female,RadioButton male)
             throws SQLException, ClassNotFoundException {
+        if (!check(idtxt,fnametxt,lnametxt,mobiletxt,emailTxt,addressTxt,female,male)){
+            showWarnningDialog();
+            return;
+        }
+
         int id = Integer.parseInt(idtxt.getText());
         String fname = fnametxt.getText();
         String lname = lnametxt.getText();
@@ -76,7 +81,7 @@ public class CustomerDBOperation {
                                       TextField emailTxt,TextField addressTxt, RadioButton femaleBtn,RadioButton maleBtn)
             throws SQLException, ClassNotFoundException {
         if (!check(idtxt,fnametxt,lnametxt,mobiletxt,emailTxt,addressTxt,femaleBtn,maleBtn)){
-            showJOptionPane();
+            showWarnningDialog();
             return;
         }
         int id=Integer.parseInt(idtxt.getText());
@@ -95,7 +100,6 @@ public class CustomerDBOperation {
 
     private static boolean check(TextField idtxt, TextField fnametxt, TextField lnametxt, TextField mobiletxt,
                              TextField emailTxt, TextField addressTxt, RadioButton femlaeBtn,RadioButton maleBtn){
-        String gender ;
         if (femlaeBtn.isSelected()) gender="female";
         else if (maleBtn.isSelected())gender="male";
         if (idtxt.getText().isEmpty()||fnametxt.getText().isEmpty()||lnametxt.getText().isEmpty()||
@@ -108,11 +112,11 @@ public class CustomerDBOperation {
         return true;
     }
 
-    private static void showJOptionPane(){
+    private static void showWarnningDialog(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Be carefull");
         alert.setHeaderText("Fill all the Fields , Please ...");
-        alert.setContentText("You must enter all information about customer to update it's information successfully");
+        alert.setContentText("You must enter all information about customer to Add/update his information successfully");
         alert.showAndWait().ifPresent(rs -> {
             if (rs == ButtonType.OK) {
                 System.out.println("Pressed OK.");

@@ -1,5 +1,6 @@
 package controllers;
 
+import commonFunctios.CustomerCommonFunctions;
 import db.DbConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,16 +26,15 @@ public class AddCustomerController extends Component{
 
 
     public void clearBtn(ActionEvent event) {
+        CustomerCommonFunctions.clearCustomerFields(idTxtField,fnameTxtField,lnameTxtField,mobileTxtField,
+                emailTxtField,addressTxtField,maleRBtn,femaleRBtn);
 
 
     }
 
     public void addCustomerBtn(ActionEvent event) throws SQLException, ClassNotFoundException {
-        String genderChoosed = null;
-        if (femaleRBtn.isSelected()) genderChoosed="male";
-        else if (maleRBtn.isSelected())genderChoosed="female";
         db.CustomerDBOperation.addCustomer(idTxtField,fnameTxtField,lnameTxtField,mobileTxtField,
-                emailTxtField,addressTxtField,genderChoosed);
+                emailTxtField,addressTxtField,femaleRBtn,maleRBtn);
     }
 
     public void cancelBtn(ActionEvent event) {

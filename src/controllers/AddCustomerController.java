@@ -6,6 +6,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
 import java.awt.*;
 import java.sql.SQLException;
 
@@ -15,6 +18,7 @@ import java.sql.SQLException;
  */
 
 public class AddCustomerController extends Component{
+    @FXML private AnchorPane addCustomer;
     @FXML private TextField idTxtField;
     @FXML private TextField fnameTxtField;
     @FXML private TextField lnameTxtField;
@@ -38,5 +42,7 @@ public class AddCustomerController extends Component{
     }
 
     public void cancelBtn(ActionEvent event) {
+        Stage stage=(Stage)addCustomer.getScene().getWindow();
+        stage.close();
     }
 }

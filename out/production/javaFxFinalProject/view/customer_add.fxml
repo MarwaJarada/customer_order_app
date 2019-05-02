@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="429.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddCustomerController">
+<AnchorPane prefHeight="429.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddCustomerController" fx:id="addCustomer">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="113.0" layoutY="14.0" prefHeight="48.0" prefWidth="195.0" text="Add Customer" textAlignment="CENTER" />
       <GridPane layoutX="92.0" layoutY="84.0" prefHeight="240.0" prefWidth="238.0">

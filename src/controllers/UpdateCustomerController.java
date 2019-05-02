@@ -23,6 +23,7 @@ public class UpdateCustomerController {
     private ArrayList<String> prevoiusCustomrtDetails;
 
     public void cancel(ActionEvent event) {
+
     }
 
     public void updateCustomer(ActionEvent event) throws SQLException, ClassNotFoundException {

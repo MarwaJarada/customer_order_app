@@ -1,7 +1,9 @@
 package db;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -12,6 +14,7 @@ public class CustomerDBOperation {
     private static Statement statement;
     private static String query;
     private static ResultSet resultSet;
+    private static String gender ;
 
     public static void addCustomer(TextField idtxt, TextField fnametxt, TextField lnametxt, TextField mobiletxt,
                                    TextField emailTxt,TextField addressTxt, String gender)
@@ -70,8 +73,12 @@ public class CustomerDBOperation {
     }
 
     public static void updateCustomer(TextField idtxt, TextField fnametxt, TextField lnametxt, TextField mobiletxt,
-                                      TextField emailTxt,TextField addressTxt, String gender)
+                                      TextField emailTxt,TextField addressTxt, RadioButton femaleBtn,RadioButton maleBtn)
             throws SQLException, ClassNotFoundException {
+        if (!check(idtxt,fnametxt,lnametxt,mobiletxt,emailTxt,addressTxt,femaleBtn,maleBtn)){
+            showJOptionPane();
+            return;
+        }
         int id=Integer.parseInt(idtxt.getText());
         String fname=fnametxt.getText();
         String lname=lnametxt.getText();
@@ -84,6 +91,33 @@ public class CustomerDBOperation {
                 "email='"+email+"',address='"+ address+"',gender='"+gender+"' WHERE id ='"+id+"'";
         statement.execute(query);
 
+    }
+
+    private static boolean check(TextField idtxt, TextField fnametxt, TextField lnametxt, TextField mobiletxt,
+                             TextField emailTxt, TextField addressTxt, RadioButton femlaeBtn,RadioButton maleBtn){
+        String gender ;
+        if (femlaeBtn.isSelected()) gender="female";
+        else if (maleBtn.isSelected())gender="male";
+        if (idtxt.getText().isEmpty()||fnametxt.getText().isEmpty()||lnametxt.getText().isEmpty()||
+                mobiletxt.getText().isEmpty()||emailTxt.getText().isEmpty()||
+                addressTxt.getText().isEmpty()||(!femlaeBtn.isSelected() && !maleBtn.isSelected())){
+            return false;
+
+
+        };
+        return true;
+    }
+
+    private static void showJOptionPane(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Be carefull");
+        alert.setHeaderText("Fill all the Fields , Please ...");
+        alert.setContentText("You must enter all information about customer to update it's information successfully");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.OK) {
+                System.out.println("Pressed OK.");
+            }
+        });
     }
 
 

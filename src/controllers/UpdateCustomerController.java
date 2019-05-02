@@ -27,10 +27,8 @@ public class UpdateCustomerController {
 
     public void updateCustomer(ActionEvent event) throws SQLException, ClassNotFoundException {
         String gender = null;
-        if (femaleRBtn.isSelected()) gender="female";
-        else if (maleRBtn.isSelected()) gender="male";
         CustomerDBOperation.updateCustomer
-                (idTxtField,fnameTxtField,lnameTxtField,mobileTxtField,emailTxtField,addressTxtField,gender);
+                (idTxtField,fnameTxtField,lnameTxtField,mobileTxtField,emailTxtField,addressTxtField,femaleRBtn,maleRBtn);
     }
 
     public void serachCustomer(ActionEvent event) throws SQLException, ClassNotFoundException {

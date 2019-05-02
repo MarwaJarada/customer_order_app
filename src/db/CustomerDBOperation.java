@@ -1,13 +1,13 @@
 package db;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import static commonFunctions.GeneralCommonFunctions.showWarnningDialog;
 
 public class CustomerDBOperation {
     private static DbConnection dbConnection;
@@ -112,17 +112,6 @@ public class CustomerDBOperation {
         return true;
     }
 
-    private static void showWarnningDialog(){
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Be carefull");
-        alert.setHeaderText("Fill all the Fields , Please ...");
-        alert.setContentText("You must enter all information about customer to Add/update his information successfully");
-        alert.showAndWait().ifPresent(rs -> {
-            if (rs == ButtonType.OK) {
-                System.out.println("Pressed OK.");
-            }
-        });
-    }
 
 
 }

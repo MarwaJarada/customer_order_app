@@ -1,7 +1,6 @@
 package controllers;
 
-import commonFunctios.CustomerCommonFunctions;
-import db.DbConnection;
+import commonFunctions.CustomerCommonFunctions;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;

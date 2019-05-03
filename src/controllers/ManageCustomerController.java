@@ -18,6 +18,7 @@ public class ManageCustomerController {
     }
 
     public void openUpdateCutomerView(ActionEvent event) {
+
     }
 
     public void mainMenu(ActionEvent event) throws IOException {

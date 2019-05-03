@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="437.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddProductController">
+<AnchorPane fx:id="productAdd" prefHeight="437.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddProductController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="113.0" layoutY="14.0" prefHeight="48.0" prefWidth="195.0" text="Add Product" textAlignment="CENTER" />
       <GridPane layoutX="92.0" layoutY="84.0" prefHeight="254.0" prefWidth="238.0">

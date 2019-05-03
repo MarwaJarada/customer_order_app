@@ -7,8 +7,6 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
-import java.awt.*;
 import java.sql.SQLException;
 
 /**
@@ -16,7 +14,7 @@ import java.sql.SQLException;
  * @since 4/30/2019
  */
 
-public class AddCustomerController extends Component{
+public class AddCustomerController{
     @FXML private AnchorPane addCustomer;
     @FXML private TextField idTxtField;
     @FXML private TextField fnameTxtField;

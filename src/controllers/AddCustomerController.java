@@ -9,6 +9,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.sql.SQLException;
 
+import static commonFunctions.GeneralCommonFunctions.closeScene;
+
 /**
  * @author Marwa N. Jarada
  * @since 4/30/2019
@@ -39,7 +41,6 @@ public class AddCustomerController{
     }
 
     public void cancelBtn(ActionEvent event) {
-        Stage stage=(Stage)addCustomer.getScene().getWindow();
-        stage.close();
+        closeScene(addCustomer);
     }
 }

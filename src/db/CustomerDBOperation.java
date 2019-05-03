@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import static commonFunctions.GeneralCommonFunctions.showWarnningDialog;
+import static commonFunctions.CustomerCommonFunctions.showWarnningDialog;
 
 public class CustomerDBOperation {
     private static DbConnection dbConnection;

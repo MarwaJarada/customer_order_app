@@ -2,17 +2,18 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="secreenLogin" prefHeight="181.0" prefWidth="346.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginScreenController">
+<AnchorPane fx:id="screenLogin" prefHeight="181.0" prefWidth="346.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginScreenController">
     <children>
-        <Label layoutX="46.0" layoutY="69.0" prefHeight="17.0" prefWidth="78.0" text="Login Name :" />
-        <TextField fx:id="loginNameTxtField" layoutX="142.0" layoutY="65.0" />
-        <Label contentDisplay="RIGHT" layoutX="46.0" layoutY="104.0" prefHeight="17.0" prefWidth="78.0" text="Password :" />
-        <TextField fx:id="passwordTxtField" layoutX="142.0" layoutY="100.0" />
-        <Button defaultButton="true" layoutX="222.0" layoutY="142.0" mnemonicParsing="false" onAction="#ok" prefHeight="25.0" prefWidth="70.0" text="OK" />
-        <Button layoutX="143.0" layoutY="142.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="70.0" text="Cancel" />
-        <Label layoutX="85.0" layoutY="40.0" prefHeight="17.0" prefWidth="177.0" />
+        <Label layoutX="46.0" layoutY="53.0" prefHeight="17.0" prefWidth="78.0" text="Login Name :" />
+        <TextField fx:id="loginNameTxtField" layoutX="142.0" layoutY="49.0" />
+        <Label contentDisplay="RIGHT" layoutX="46.0" layoutY="88.0" prefHeight="17.0" prefWidth="78.0" text="Password :" />
+        <Button defaultButton="true" layoutX="222.0" layoutY="126.0" mnemonicParsing="false" onAction="#ok" prefHeight="25.0" prefWidth="70.0" text="OK" />
+        <Button layoutX="143.0" layoutY="126.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="70.0" text="Cancel" />
+        <Label fx:id="errorLogin" alignment="CENTER" layoutX="85.0" layoutY="22.0" prefHeight="17.0" prefWidth="177.0" textFill="#d30909" />
+      <PasswordField fx:id="passwordTxtField" layoutX="142.0" layoutY="84.0" />
     </children>
 </AnchorPane>

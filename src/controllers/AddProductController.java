@@ -9,10 +9,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.scene.control.MenuItem;
 
+import static commonFunctions.GeneralCommonFunctions.closeScene;
+
 public class AddProductController extends Application{
+    @FXML private AnchorPane productAdd;
     @FXML private TextField nameTxtView;
     @FXML private TextField priceTxtView;
     @FXML private TextField quantityTxtView;
@@ -25,6 +29,7 @@ public class AddProductController extends Application{
 
 
     public void cancel(ActionEvent event) {
+        closeScene(productAdd);
     }
 
     public void addOrder(ActionEvent event) {

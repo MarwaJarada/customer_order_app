@@ -20,7 +20,7 @@ public class LoginScreenController {
 
     public void ok(ActionEvent event) throws SQLException, ClassNotFoundException, IOException {
         try {
-            if (verifyUser(loginNameTxtField,passwordTxtField)) openNewScene(this.getClass(),screenLogin,"../view/menu_main.fxml") ;
+            if (verifyUser(loginNameTxtField,passwordTxtField)) openNewScene(this.getClass(),screenLogin,"../view/menu_main.fxml","Main Menu") ;
             else {
                 errorLogin.setText("Error Name or Password");
 

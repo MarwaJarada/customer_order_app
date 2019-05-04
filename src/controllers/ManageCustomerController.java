@@ -21,7 +21,7 @@ public class ManageCustomerController {
     }
 
     public void mainMenu(ActionEvent event) throws IOException {
-        openNewScene(this.getClass(),customerManage,"../view/menu_main.fxml");
+        openNewScene(this.getClass(),customerManage,"../view/menu_main.fxml","Main Menu");
 
     }
 }

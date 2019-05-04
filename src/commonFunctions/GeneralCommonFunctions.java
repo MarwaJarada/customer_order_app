@@ -16,11 +16,12 @@ public class GeneralCommonFunctions {
 
 
 
-    public static void openNewScene(Class myClass,AnchorPane from , String to) throws IOException {
+    public static void openNewScene(Class myClass,AnchorPane from , String to , String title) throws IOException {
         Stage stage=(Stage)from.getScene().getWindow();
         FXMLLoader loader=new FXMLLoader(myClass.getResource(to));
         Parent parent=loader.load();
         Scene scene=new Scene(parent);
+        stage.setTitle(title);
         stage.setScene(scene);
 
     }
@@ -30,11 +31,12 @@ public class GeneralCommonFunctions {
         stage.close();
     }
 
-    public static void openNewStage(Class myClass,String to) throws IOException {
+    public static void openNewStage(Class myClass,String to,String title) throws IOException {
         Stage stage=new Stage();
         FXMLLoader loader=new FXMLLoader(myClass.getResource(to));
         Parent parent=loader.load();
         Scene scene=new Scene(parent);
+        stage.setTitle(title);
         stage.setScene(scene);
         stage.show();
 

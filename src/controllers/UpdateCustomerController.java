@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import static commonFunctions.GeneralCommonFunctions.closeScene;
+
 public class UpdateCustomerController {
     @FXML private AnchorPane customerUpdate;
     @FXML private TextField customerIdTxtField;
@@ -26,8 +28,7 @@ public class UpdateCustomerController {
     private ArrayList<String> prevoiusCustomrtDetails;
 
     public void cancel(ActionEvent event) {
-        Stage stage=(Stage)customerUpdate.getScene().getWindow();
-        stage.close();
+       closeScene(customerUpdate);
     }
 
     public void updateCustomer(ActionEvent event) throws SQLException, ClassNotFoundException {

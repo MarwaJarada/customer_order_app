@@ -1,10 +1,12 @@
 package controllers;
 
 import commonFunctions.CustomerCommonFunctions;
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.sql.SQLException;
@@ -26,6 +28,7 @@ public class AddCustomerController{
     @FXML private TextField addressTxtField;
     @FXML private RadioButton maleRBtn;
     @FXML private RadioButton femaleRBtn;
+    private ToggleGroup toggleGroup;
 
 
     public void clearBtn(ActionEvent event) {

@@ -15,7 +15,7 @@ import javafx.scene.control.MenuItem;
 
 import static commonFunctions.GeneralCommonFunctions.closeScene;
 
-public class AddProductController extends Application{
+public class AddProductController{
     @FXML private AnchorPane productAdd;
     @FXML private TextField nameTxtView;
     @FXML private TextField priceTxtView;
@@ -35,23 +35,5 @@ public class AddProductController extends Application{
     public void addOrder(ActionEvent event) {
     }
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("view\\product_add.fxml"));
-        Parent parent=loader.load();
-        Scene scene=new Scene(parent);
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("Login");
-        technologyItem=new MenuItem("technology");
-        helthyItem =new MenuItem("healthy");
-        industryItem=new MenuItem("industry");
-        kitchenItem=new MenuItem("kitchen");
-        categoryMenuBtn.getItems().add(technologyItem);
-        categoryMenuBtn.getItems().add(helthyItem);
-        categoryMenuBtn.getItems().add(industryItem);
-        categoryMenuBtn.getItems().add(kitchenItem);
-        primaryStage.show();
 
-
-    }
 }

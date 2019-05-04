@@ -29,5 +29,17 @@ public class GeneralCommonFunctions {
         Stage stage=(Stage)pane.getScene().getWindow();
         stage.close();
     }
+
+    public static void openNewStage(Class myClass,String to) throws IOException {
+        Stage stage=new Stage();
+        FXMLLoader loader=new FXMLLoader(myClass.getResource(to));
+        Parent parent=loader.load();
+        Scene scene=new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+
 }
 

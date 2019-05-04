@@ -13,5 +13,6 @@ public class SearchProductController {
     }
 
     public void cancel(ActionEvent event) {
+
     }
 }

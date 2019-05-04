@@ -22,18 +22,27 @@ public class AddProductController{
     @FXML private TextField quantityTxtView;
     @FXML private TextArea descriptionTxtArea;
     @FXML private MenuButton categoryMenuBtn;
-    private MenuItem technologyItem;
-    private MenuItem helthyItem;
-    private MenuItem industryItem;
-    private MenuItem kitchenItem;
+    @FXML private MenuItem technologyItem;
+    @FXML private MenuItem helthyItem;
+    @FXML private MenuItem industryItem;
+    @FXML private MenuItem kitchenItem;
+    private String itemSelected;
 
 
+    @FXML
     public void cancel(ActionEvent event) {
         closeScene(productAdd);
     }
 
+    @FXML
     public void addOrder(ActionEvent event) {
+
     }
 
-
+    @FXML
+    public void chooseCategory(ActionEvent event) {
+        MenuItem selected =(MenuItem) event.getSource();
+        itemSelected=selected.getText();
+        categoryMenuBtn.setText(itemSelected);
+        }
 }

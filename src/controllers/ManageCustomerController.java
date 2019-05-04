@@ -7,17 +7,24 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 
 import static commonFunctions.GeneralCommonFunctions.openNewScene;
+import static commonFunctions.GeneralCommonFunctions.openNewStage;
 
 public class ManageCustomerController {
     @FXML private AnchorPane customerManage;
 
-    public void openAddCustomerView(ActionEvent event) {
+    public void openAddCustomerView(ActionEvent event) throws IOException {
+        openNewStage(this.getClass(),"../view/customer_add.fxml","Add Customer");
     }
 
-    public void openUpdateCustomerView(ActionEvent event) {
+    public void openUpdateCustomerView(ActionEvent event) throws IOException {
+        openNewStage(this.getClass(),"../view/customer_update.fxml","Update Customer");
+
+
     }
 
-    public void openUpdateCutomerView(ActionEvent event) {
+    public void openDeleteCutomerView(ActionEvent event) throws IOException {
+        openNewStage(this.getClass(),"../view/customer_delete.fxml","Delete Customer");
+
     }
 
     public void mainMenu(ActionEvent event) throws IOException {

@@ -21,7 +21,7 @@
                   <Insets left="70.0" top="20.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#openUpdateCutomerView" prefHeight="30.0" prefWidth="190.0" text="Delete Customer">
+            <Button mnemonicParsing="false" onAction="#openDeleteCutomerView" prefHeight="30.0" prefWidth="190.0" text="Delete Customer">
                <VBox.margin>
                   <Insets left="70.0" top="20.0" />
                </VBox.margin>

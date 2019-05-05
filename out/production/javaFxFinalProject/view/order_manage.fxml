@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="orderManage" prefHeight="454.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ManageOrderController">
    <children>
@@ -46,7 +47,10 @@
             <TextField fx:id="orderDateTxtField" layoutX="147.0" layoutY="105.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
-      <Label alignment="CENTER" layoutX="136.0" layoutY="19.0" prefHeight="37.0" prefWidth="166.0" text="Orders" />
+      <Label alignment="CENTER" layoutX="136.0" layoutY="19.0" prefHeight="37.0" prefWidth="166.0" text="Orders" textFill="#4e525b">
+         <font>
+            <Font name="Century Gothic" size="20.0" />
+         </font></Label>
       <Button layoutX="85.0" layoutY="270.0" mnemonicParsing="false" onAction="#insertOrder" prefHeight="25.0" prefWidth="92.0" text="Insert Order" />
       <Button layoutX="182.0" layoutY="270.0" mnemonicParsing="false" onAction="#showOrders" prefHeight="25.0" prefWidth="119.0" text="Show All Orders" />
       <Button layoutX="305.0" layoutY="270.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="71.0" text="Cancel" />

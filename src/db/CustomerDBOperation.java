@@ -1,5 +1,8 @@
 package db;
 
+import entity.Customer;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import java.sql.ResultSet;
@@ -43,12 +46,6 @@ public class CustomerDBOperation {
     public static void deleteCustomer(){
         /**
          * @//TODO: 5/1/2019 implenet query to delete customer
-         */
-    }
-
-    public static void manageCustomer(){
-        /**
-         * @// TODO: 5/1/2019 implement qury to manage customer
          */
     }
 
@@ -96,6 +93,27 @@ public class CustomerDBOperation {
                 "email='"+email+"',address='"+ address+"',gender='"+gender+"' WHERE id ='"+id+"'";
         statement.execute(query);
 
+    }
+
+
+    public static ObservableList<Customer> showCustomer() throws SQLException,ClassNotFoundException{
+        ObservableList<Customer> customers= FXCollections.observableArrayList();
+        dbConnection=DbConnection.getConnection();
+        statement=dbConnection.getStatement();
+        query="SELECT * FROM customer";
+        resultSet=statement.executeQuery(query);
+        while (resultSet.next()){
+            Customer customer=new Customer();
+            customer.setId(resultSet.getInt("id"));
+            customer.setFname(resultSet.getString("fname"));
+            customer.setLname(resultSet.getString("lname"));
+            customer.setMobile(resultSet.getInt("mobile"));
+            customer.setEmail(resultSet.getString("email"));
+            customer.getAddress(resultSet.getString("address"));
+            customer.setGender(resultSet.getString("gender"));
+            customers.add(customer);
+        }
+        return customers;
     }
 
     private static boolean check(TextField idtxt, TextField fnametxt, TextField lnametxt, TextField mobiletxt,

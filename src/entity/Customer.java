@@ -70,8 +70,8 @@ public class Customer {
         return email;
     }
 
-    public String getAddress() {
-        return address;
+    public String getAddress(String address) {
+        return this.address;
     }
 
     public String getGender() {

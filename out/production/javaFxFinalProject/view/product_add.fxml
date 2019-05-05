@@ -41,17 +41,17 @@
                   <Insets top="10.0" />
                </GridPane.margin>
             </TextArea>
-            <MenuButton fx:id="categoryMenuBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="157.0" text="choose your category .." GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <MenuButton fx:id="categoryMenuBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#chooseCategory" prefHeight="25.0" prefWidth="157.0" text="choose category .." GridPane.columnIndex="1" GridPane.rowIndex="1">
               <items>
-                <MenuItem mnemonicParsing="false" text="technology" />
-                <MenuItem mnemonicParsing="false" text="kitchen" />
-                  <MenuItem mnemonicParsing="false" text="industry" />
-                  <MenuItem mnemonicParsing="false" text="healthy" />
+                <MenuItem fx:id="technologyItem" mnemonicParsing="false" onAction="#chooseCategory" text="technologyItem" />
+                <MenuItem fx:id="kitchenItem" mnemonicParsing="false" onAction="#chooseCategory" text="kitchen" />
+                  <MenuItem fx:id="industryItem" mnemonicParsing="false" onAction="#chooseCategory" text="industry" />
+                  <MenuItem fx:id="helthyItem" mnemonicParsing="false" onAction="#chooseCategory" text="healthy" />
               </items>
             </MenuButton>
          </children>
       </GridPane>
-      <Button defaultButton="true" layoutX="182.0" layoutY="369.0" mnemonicParsing="false" onAction="#addOrder" prefHeight="25.0" prefWidth="70.0" text="Add" />
+      <Button defaultButton="true" layoutX="182.0" layoutY="369.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="25.0" prefWidth="70.0" text="Add" />
       <Button layoutX="260.0" layoutY="369.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="70.0" text="Cancel" />
    </children>
 </AnchorPane>

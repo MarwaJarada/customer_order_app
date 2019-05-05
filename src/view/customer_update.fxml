@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="customerUpdate" prefHeight="497.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UpdateCustomerController">
    <children>
@@ -19,7 +20,10 @@
             <TextField fx:id="customerIdTxtField" prefHeight="25.0" prefWidth="151.0" />
          </children>
       </HBox>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="113.0" layoutY="14.0" prefHeight="48.0" prefWidth="195.0" text="Update Customer" textAlignment="CENTER" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="113.0" layoutY="14.0" prefHeight="48.0" prefWidth="195.0" text="Update Customer" textAlignment="CENTER" textFill="#4e525b">
+         <font>
+            <Font name="Century Gothic" size="20.0" />
+         </font></Label>
       <GridPane layoutX="81.0" layoutY="170.0" prefHeight="240.0" prefWidth="238.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.0" minWidth="10.0" prefWidth="72.0" />

@@ -13,10 +13,14 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="productUpdate" prefHeight="520.0" prefWidth="421.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UpdateProductController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="113.0" prefHeight="48.0" prefWidth="195.0" text="Update Product" textAlignment="CENTER" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="113.0" prefHeight="48.0" prefWidth="195.0" text="Update Product" textAlignment="CENTER" textFill="#4e525b">
+         <font>
+            <Font name="Century Gothic" size="20.0" />
+         </font></Label>
       <GridPane layoutX="79.0" layoutY="257.0" prefHeight="213.0" prefWidth="247.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.0" minWidth="10.0" prefWidth="72.0" />

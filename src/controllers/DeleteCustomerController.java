@@ -1,5 +1,6 @@
 package controllers;
 
+import commonFunctions.CustomerCommonFunctions;
 import entity.Customer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -36,14 +37,12 @@ public class DeleteCustomerController {
     }
 
     public void refreshCustomers(ActionEvent event) throws SQLException, ClassNotFoundException {
-        ObservableList<Customer> customers=showCustomer();
-        idCol.setCellValueFactory(new PropertyValueFactory<String,Customer>("id"));
-        fnameCol.setCellValueFactory(new PropertyValueFactory<String,Customer>("fname"));
-        lnameCol.setCellValueFactory(new PropertyValueFactory<String,Customer>("lname"));
-        mobileCol.setCellValueFactory(new PropertyValueFactory<String,Customer>("mobile"));
-        emailCol.setCellValueFactory(new PropertyValueFactory<String,Customer>("email"));
-        addressCol.setCellValueFactory(new PropertyValueFactory<String,Customer>("address"));
-        genderCol.setCellValueFactory(new PropertyValueFactory<String,Customer>("gender"));
-        deleteCustomerTable.setItems(customers);
+        CustomerCommonFunctions.
+                refreshCustomers(deleteCustomerTable,idCol,fnameCol,lnameCol,mobileCol,emailCol,addressCol,genderCol);
     }
+
+
+
+
+
 }

@@ -15,13 +15,12 @@
          </font></Label>
       <TableView fx:id="deleteProductTable" layoutX="37.0" layoutY="113.0" prefHeight="175.0" prefWidth="527.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="ID" />
-          <TableColumn prefWidth="75.0" text="First Name" />
-            <TableColumn prefWidth="75.0" text="Last Name" />
-            <TableColumn prefWidth="75.0" text="Mobile" />
-            <TableColumn prefWidth="75.0" text="Email" />
-            <TableColumn prefWidth="75.0" text="Address" />
-            <TableColumn prefWidth="75.0" text="Gender" />
+          <TableColumn prefWidth="55.0" text="ID" />
+          <TableColumn prefWidth="88.0" text="First Name" />
+            <TableColumn prefWidth="82.0" text="Category" />
+            <TableColumn prefWidth="75.0" text="Quantity" />
+            <TableColumn prefWidth="75.0" text="Price" />
+            <TableColumn prefWidth="151.0" text="Description" />
         </columns>
       </TableView>
       <Button layoutX="484.0" layoutY="315.0" maxWidth="80.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="80.0" text="Cancel" />

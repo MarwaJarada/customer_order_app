@@ -6,6 +6,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
+import static commonFunctions.CustomerCommonFunctions.refreshCustomers;
 import static commonFunctions.GeneralCommonFunctions.openNewScene;
 import static commonFunctions.GeneralCommonFunctions.openNewStage;
 

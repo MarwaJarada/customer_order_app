@@ -13,13 +13,13 @@
          <font>
             <Font name="Century Gothic" size="20.0" />
          </font></Label>
-      <TableView fx:id="deleteCustomerTable" layoutX="37.0" layoutY="113.0" prefHeight="175.0" prefWidth="527.0">
+      <TableView fx:id="deleteCustomerTable" layoutY="113.0" prefHeight="175.0" prefWidth="601.0">
         <columns>
-          <TableColumn fx:id="idCol" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="fnameCol" prefWidth="75.0" text="First Name" />
-            <TableColumn fx:id="lnameCol" prefWidth="75.0" text="Last Name" />
-            <TableColumn fx:id="mobileCol" prefWidth="75.0" text="Mobile" />
-            <TableColumn fx:id="emailCol" prefWidth="75.0" text="Email" />
+          <TableColumn fx:id="idCol" prefWidth="60.0" text="ID" />
+          <TableColumn fx:id="fnameCol" text="First Name" />
+            <TableColumn fx:id="lnameCol" text="Last Name" />
+            <TableColumn fx:id="mobileCol" text="Mobile" />
+            <TableColumn fx:id="emailCol" prefWidth="149.0" text="Email" />
             <TableColumn fx:id="addressCol" prefWidth="75.0" text="Address" />
             <TableColumn fx:id="genderCol" prefWidth="75.0" text="Gender" />
         </columns>

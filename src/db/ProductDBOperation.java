@@ -1,4 +1,7 @@
 package db;
+import entity.Product;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -46,6 +49,25 @@ public class ProductDBOperation {
     public static void deleteProduct(){
 
 
+    }
+
+
+    public static ObservableList<Product> showProducts() throws SQLException,ClassNotFoundException{
+        ObservableList<Product> products= FXCollections.observableArrayList();
+        dbConnection=DbConnection.getConnection();
+        statement=dbConnection.getStatement();
+        query="SELECT * FROM product";
+        resultSet=statement.executeQuery(query);
+        while (resultSet.next()){
+            Product product=new Product();
+            product.setName(resultSet.getString("name"));
+            product.setCategory(resultSet.getString("category"));
+            product.setQuantity(resultSet.getInt("quantity"));
+            product.setPrice(resultSet.getInt("price"));
+            product.setDescription(resultSet.getString("description"));
+            products.add(product);
+        }
+        return products;
     }
 
 

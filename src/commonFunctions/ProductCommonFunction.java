@@ -1,7 +1,15 @@
 package commonFunctions;
 
+import entity.Customer;
+import entity.Product;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import java.sql.SQLException;
+import static db.ProductDBOperation.showProducts;
 
 public class ProductCommonFunction {
 
@@ -29,5 +37,15 @@ public class ProductCommonFunction {
         });
     }
 
-
+    public static void refreshProducts(TableView tableView, TableColumn nameCol, TableColumn categoryCol,
+                                       TableColumn quantityCol, TableColumn priceCol, TableColumn descriptionCol)
+            throws SQLException, ClassNotFoundException {
+        ObservableList<Product> products=showProducts();
+        nameCol.setCellValueFactory(new PropertyValueFactory<String, Product>("name"));
+        categoryCol.setCellValueFactory(new PropertyValueFactory<String,Product>("category"));
+        quantityCol.setCellValueFactory(new PropertyValueFactory<String,Product>("quantity"));
+        priceCol.setCellValueFactory(new PropertyValueFactory<String,Product>("price"));
+        descriptionCol.setCellValueFactory(new PropertyValueFactory<String,Product>("description"));
+        tableView.setItems(products);
+    }
 }

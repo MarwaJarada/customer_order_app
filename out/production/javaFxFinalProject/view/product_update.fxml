@@ -59,11 +59,11 @@
       <Button defaultButton="true" layoutX="247.0" layoutY="481.0" mnemonicParsing="false" onAction="#confirm" prefHeight="25.0" prefWidth="79.0" text="Confirm" />
       <TableView fx:id="updateProductTable" layoutY="48.0" prefHeight="157.0" prefWidth="421.0">
         <columns>
-          <TableColumn prefWidth="84.0" text="Name" />
-          <TableColumn prefWidth="84.0" text="Category" />
-            <TableColumn prefWidth="84.0" text="Quantity" />
-            <TableColumn prefWidth="84.0" text="Price" />
-            <TableColumn prefWidth="84.0" text="Description" />
+          <TableColumn fx:id="nameCol" text="Name" />
+          <TableColumn fx:id="categoryCol" text="Category" />
+            <TableColumn fx:id="quantityCol" prefWidth="65.0" text="Quantity" />
+            <TableColumn fx:id="priceCol" prefWidth="65.0" text="Price" />
+            <TableColumn fx:id="descriptionCol" prefWidth="130.0" text="Description" />
         </columns>
       </TableView>
       <Button defaultButton="true" layoutX="77.0" layoutY="210.0" mnemonicParsing="false" onAction="#updateProduct" prefHeight="25.0" prefWidth="80.0" text="Update" />

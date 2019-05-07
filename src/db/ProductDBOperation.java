@@ -60,14 +60,28 @@ public class ProductDBOperation {
         resultSet=statement.executeQuery(query);
         while (resultSet.next()){
             Product product=new Product();
+            product.setId(resultSet.getInt("id"));
             product.setName(resultSet.getString("name"));
             product.setCategory(resultSet.getString("category"));
             product.setQuantity(resultSet.getInt("quantity"));
-            product.setPrice(resultSet.getInt("price"));
+            product.setPrice(resultSet.getFloat("price"));
             product.setDescription(resultSet.getString("description"));
             products.add(product);
         }
         return products;
+    }
+
+    public static void updateProduct(long id,TextField nameTxt,String category, TextField priceTxt, TextField quantityTxt,
+                                     TextArea descriptionTxt) throws SQLException,ClassNotFoundException{
+        String name=nameTxt.getText();
+        String price=priceTxt.getText();
+        String quantity=quantityTxt.getText();
+        String description=descriptionTxt.getText();
+        query="UPDATE product SET name='"+name+"', category ='"+category+"', price='"+price+"',quantity='"+quantity+
+                "',description='"+description+"' WHERE id='"+id+"'";
+        dbConnection=DbConnection.getConnection();
+        statement=dbConnection.getStatement();
+        statement.execute(query);
     }
 
 

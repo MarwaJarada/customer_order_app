@@ -1,6 +1,7 @@
 package controllers;
 
 import commonFunctions.ProductCommonFunction;
+import db.ProductDBOperation;
 import entity.Product;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -34,18 +35,24 @@ public class UpdateProductController implements Initializable {
     @FXML private TableColumn descriptionCol;
 
 
+
     public void cancel(ActionEvent event) {
         closeScene(productUpdate);
     }
 
-    public void confirm(ActionEvent event) {
+    public void confirm(ActionEvent event) throws SQLException, ClassNotFoundException {
+
+        ObservableList<Product> product= updateProductTable.getSelectionModel().getSelectedItems();
+        ProductDBOperation.updateProduct(product.get(0).getId(),nameTxtField,categoryMenuBtn.getText(),priceTxtField,
+                quantityTxtField,descriptionTxtArea);
+
+
     }
 
     public void updateProduct(ActionEvent event) throws SQLException, ClassNotFoundException {
         if (updateProductTable.getSelectionModel().getSelectedItems().get(0)!=null) {
             ObservableList<Product> product= updateProductTable.getSelectionModel().getSelectedItems();
             nameTxtField.setText(product.get(0).getName());
-            nameTxtField.setEditable(false);
             priceTxtField.setText(String.valueOf(product.get(0).getPrice()));
             quantityTxtField.setText(String.valueOf(product.get(0).getQuantity()));
             categoryMenuBtn.setText(product.get(0).getCategory());

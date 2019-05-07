@@ -49,10 +49,10 @@
             </TextArea>
             <MenuButton fx:id="categoryMenuBtn" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="157.0" text="Choose Category .." GridPane.columnIndex="1" GridPane.rowIndex="1">
               <items>
-                <MenuItem mnemonicParsing="false" text="technology" />
-                <MenuItem mnemonicParsing="false" text="kitchen" />
-                  <MenuItem mnemonicParsing="false" text="industry" />
-                  <MenuItem mnemonicParsing="false" text="healthy" />
+                <MenuItem fx:id="technologyItem" mnemonicParsing="false" onAction="#chooseCategory" text="technology" />
+                <MenuItem fx:id="kitchenItem" mnemonicParsing="false" onAction="#chooseCategory" text="kitchen" />
+                  <MenuItem fx:id="industryItem" mnemonicParsing="false" onAction="#chooseCategory" text="industry" />
+                  <MenuItem fx:id="helthyItem" mnemonicParsing="false" onAction="#chooseCategory" text="healthy" />
               </items>
             </MenuButton>
          </children>

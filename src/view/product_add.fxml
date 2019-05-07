@@ -45,9 +45,9 @@
                   <Insets top="10.0" />
                </GridPane.margin>
             </TextArea>
-            <MenuButton fx:id="categoryMenuBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#chooseCategory" prefHeight="25.0" prefWidth="157.0" text="choose category .." GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <MenuButton fx:id="categoryMenuBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#chooseCategory" prefHeight="25.0" prefWidth="157.0" text="choose category .." GridPane.columnIndex="1" GridPane.rowIndex="1">
               <items>
-                <MenuItem fx:id="technologyItem" mnemonicParsing="false" onAction="#chooseCategory" text="technologyItem" />
+                <MenuItem fx:id="technologyItem" mnemonicParsing="false" onAction="#chooseCategory" text="technology" />
                 <MenuItem fx:id="kitchenItem" mnemonicParsing="false" onAction="#chooseCategory" text="kitchen" />
                   <MenuItem fx:id="industryItem" mnemonicParsing="false" onAction="#chooseCategory" text="industry" />
                   <MenuItem fx:id="helthyItem" mnemonicParsing="false" onAction="#chooseCategory" text="healthy" />

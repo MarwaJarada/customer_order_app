@@ -47,10 +47,12 @@
                   <Insets top="10.0" />
                </GridPane.margin>
             </TextArea>
-            <MenuButton fx:id="categoryMenuBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="157.0" text="MenuButton" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <MenuButton fx:id="categoryMenuBtn" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="157.0" text="Choose Category .." GridPane.columnIndex="1" GridPane.rowIndex="1">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
+                <MenuItem mnemonicParsing="false" text="technology" />
+                <MenuItem mnemonicParsing="false" text="kitchen" />
+                  <MenuItem mnemonicParsing="false" text="industry" />
+                  <MenuItem mnemonicParsing="false" text="healthy" />
               </items>
             </MenuButton>
          </children>

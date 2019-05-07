@@ -15,11 +15,11 @@
          </font></Label>
       <TableView fx:id="deleteProductTable" layoutX="37.0" layoutY="113.0" prefHeight="175.0" prefWidth="527.0">
         <columns>
-          <TableColumn prefWidth="95.0" text="Name" />
-            <TableColumn prefWidth="95.0" text="Category" />
-            <TableColumn text="Quantity" />
-            <TableColumn text="Price" />
-            <TableColumn prefWidth="179.0" text="Description" />
+          <TableColumn fx:id="nameCol" prefWidth="95.0" text="Name" />
+            <TableColumn fx:id="categorieCol" prefWidth="95.0" text="Category" />
+            <TableColumn fx:id="quantityCol" text="Quantity" />
+            <TableColumn fx:id="priceCol" text="Price" />
+            <TableColumn fx:id="descriptionCol" prefWidth="179.0" text="Description" />
         </columns>
       </TableView>
       <Button layoutX="484.0" layoutY="315.0" maxWidth="80.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="80.0" text="Cancel" />

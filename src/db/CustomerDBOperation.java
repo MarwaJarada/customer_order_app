@@ -43,10 +43,12 @@ public class CustomerDBOperation {
 
     }
 
-    public static void deleteCustomer(){
-        /**
-         * @//TODO: 5/1/2019 implenet query to delete customer
-         */
+    public static void deleteCustomer(long id) throws SQLException, ClassNotFoundException {
+            query="DELETE FROM customer WHERE id='"+id+"'";
+            dbConnection=DbConnection.getConnection();
+            statement=dbConnection.getStatement();
+            statement.execute(query);
+
     }
 
     /**

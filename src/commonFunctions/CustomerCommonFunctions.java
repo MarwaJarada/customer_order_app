@@ -51,4 +51,17 @@ public class CustomerCommonFunctions {
         genderCol.setCellValueFactory(new PropertyValueFactory<String,Customer>("gender"));
         tableView.setItems(customers);
     }
+
+    public static void selectCustomer(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Be carefull");
+        alert.setHeaderText("Select Customer ..");
+        alert.setContentText("You must select Customer from table ! ");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.OK) {
+                System.out.println("Pressed OK.");
+            }
+        });
+    }
+
 }

@@ -48,4 +48,18 @@ public class ProductCommonFunction {
         descriptionCol.setCellValueFactory(new PropertyValueFactory<String,Product>("description"));
         tableView.setItems(products);
     }
+
+
+    public static void selectProduct(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Be carefull");
+        alert.setHeaderText("Select Product ..");
+        alert.setContentText("You must select product from table ! ");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.OK) {
+                System.out.println("Pressed OK.");
+            }
+        });
+    }
+
 }

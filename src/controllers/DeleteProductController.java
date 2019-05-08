@@ -1,6 +1,9 @@
 package controllers;
 
 import commonFunctions.ProductCommonFunction;
+import db.ProductDBOperation;
+import entity.Product;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -28,10 +31,23 @@ public class DeleteProductController implements Initializable {
         closeScene(productDelete);
     }
 
-    public void deleteProduct(ActionEvent event) {
+    public void deleteProduct(ActionEvent event) throws SQLException, ClassNotFoundException {
+        ObservableList<Product> products = deleteProductTable.getSelectionModel().getSelectedItems();
+        try {
+            if (products.get(0)!=null)
+            ProductDBOperation.deleteProduct(products.get(0).getId());
+            else ProductCommonFunction.selectProduct();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 
-    public void refreshProducts(ActionEvent event) {
+    public void refreshProducts(ActionEvent event) throws SQLException, ClassNotFoundException {
+        ProductCommonFunction.
+                refreshProducts(deleteProductTable,nameCol,categorieCol,quantityCol,priceCol,descriptionCol);
     }
 
     @Override

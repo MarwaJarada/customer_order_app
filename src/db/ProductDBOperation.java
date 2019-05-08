@@ -46,9 +46,11 @@ public class ProductDBOperation {
     }
 
 
-    public static void deleteProduct(){
-
-
+    public static void deleteProduct(long id) throws SQLException,ClassNotFoundException{
+        query="DELETE FROM product WHERE id='"+id+"'";
+        dbConnection=DbConnection.getConnection();
+        statement=dbConnection.getStatement();
+        statement.execute(query);
     }
 
 

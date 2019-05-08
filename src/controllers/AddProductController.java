@@ -29,7 +29,7 @@ public class AddProductController{
     @FXML private MenuItem helthyItem;
     @FXML private MenuItem industryItem;
     @FXML private MenuItem kitchenItem;
-    private String itemSelected;
+    private String itemSelected="";
 
 
     @FXML
@@ -40,6 +40,7 @@ public class AddProductController{
     @FXML
     public void addProduct(ActionEvent event) throws SQLException, ClassNotFoundException {
         ProductDBOperation.addProduct(nameTxtView,itemSelected,priceTxtView,quantityTxtView,descriptionTxtArea);
+
     }
 
     @FXML

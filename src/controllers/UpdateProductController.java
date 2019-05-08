@@ -33,6 +33,9 @@ public class UpdateProductController implements Initializable {
     @FXML private TableColumn quantityCol;
     @FXML private TableColumn priceCol;
     @FXML private TableColumn descriptionCol;
+    private String itemSelected="";
+    private ObservableList<Product> product;
+
 
 
 
@@ -41,9 +44,8 @@ public class UpdateProductController implements Initializable {
     }
 
     public void confirm(ActionEvent event) throws SQLException, ClassNotFoundException {
-
-        ObservableList<Product> product= updateProductTable.getSelectionModel().getSelectedItems();
-        ProductDBOperation.updateProduct(product.get(0).getId(),nameTxtField,categoryMenuBtn.getText(),priceTxtField,
+        System.out.println(product.get(0).getId());
+        ProductDBOperation.updateProduct(product.get(0).getId(),nameTxtField,itemSelected,priceTxtField,
                 quantityTxtField,descriptionTxtArea);
 
 
@@ -51,14 +53,15 @@ public class UpdateProductController implements Initializable {
 
     public void updateProduct(ActionEvent event) throws SQLException, ClassNotFoundException {
         if (updateProductTable.getSelectionModel().getSelectedItems().get(0)!=null) {
-            ObservableList<Product> product= updateProductTable.getSelectionModel().getSelectedItems();
+            product= updateProductTable.getSelectionModel().getSelectedItems();
             nameTxtField.setText(product.get(0).getName());
             priceTxtField.setText(String.valueOf(product.get(0).getPrice()));
             quantityTxtField.setText(String.valueOf(product.get(0).getQuantity()));
             categoryMenuBtn.setText(product.get(0).getCategory());
             descriptionTxtArea.setText(product.get(0).getDescription());
+            itemSelected=product.get(0).getCategory();
 
-        }
+        }else ProductCommonFunction.selectProduct();
 
 
     }
@@ -82,7 +85,7 @@ public class UpdateProductController implements Initializable {
 
     public void chooseCategory(ActionEvent event) {
         MenuItem selected = (MenuItem)event.getSource();
-        String itemSelected=selected.getText();
+        itemSelected=selected.getText();
         categoryMenuBtn.setText(itemSelected);
     }
 }

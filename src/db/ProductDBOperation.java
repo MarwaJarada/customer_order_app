@@ -2,6 +2,7 @@ package db;
 import entity.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -9,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import static commonFunctions.ProductCommonFunction.selectProduct;
 import static commonFunctions.ProductCommonFunction.showWarnningDialog;
 import static commonFunctions.ProductCommonFunction.wrongInput;
 
@@ -20,7 +22,7 @@ public class ProductDBOperation {
     private static String gender ;
 
 
-    public static void addProduct(TextField nameTxt,String category, TextField priceTxt, TextField quantityTxt,
+    public static void addProduct(TextField nameTxt, String category, TextField priceTxt, TextField quantityTxt,
                                   TextArea descriptionTxt)throws SQLException,ClassNotFoundException{
         if (!check(nameTxt,category,priceTxt,quantityTxt,descriptionTxt)){
             showWarnningDialog();
@@ -74,28 +76,31 @@ public class ProductDBOperation {
     }
 
     public static void updateProduct(long id,TextField nameTxt,String category, TextField priceTxt, TextField quantityTxt,
-                                     TextArea descriptionTxt) throws SQLException,ClassNotFoundException{
-        String name=nameTxt.getText();
-        String price=priceTxt.getText();
-        String quantity=quantityTxt.getText();
-        String description=descriptionTxt.getText();
-        query="UPDATE product SET name='"+name+"', category ='"+category+"', price='"+price+"',quantity='"+quantity+
-                "',description='"+description+"' WHERE id='"+id+"'";
-        dbConnection=DbConnection.getConnection();
-        statement=dbConnection.getStatement();
-        statement.execute(query);
-    }
+                                     TextArea descriptionTxt) throws SQLException,ClassNotFoundException {
+        if (!check(nameTxt,category,priceTxt,quantityTxt,descriptionTxt)){
+            showWarnningDialog();
+            return;
+        }else {
+            String name = nameTxt.getText();
+            String price = priceTxt.getText();
+            String quantity = quantityTxt.getText();
+            String description = descriptionTxt.getText();
+            query = "UPDATE product SET name='" + name + "', category ='" + category + "', price='" + price + "',quantity='" + quantity +
+                    "',description='" + description + "' WHERE id='" + id + "'";
+            dbConnection = DbConnection.getConnection();
+            statement = dbConnection.getStatement();
+            statement.execute(query);
+        }}
 
 
     private static boolean check(TextField nameTxt,String category, TextField priceTxt, TextField quantityTxt,
                                  TextArea descriptionTxt){
-        if (nameTxt.getText().isEmpty()||category.isEmpty()||priceTxt.getText().isEmpty()||
+        if(nameTxt.getText().isEmpty()||category.isEmpty()||priceTxt.getText().isEmpty()||
                 quantityTxt.getText().isEmpty()||descriptionTxt.getText().isEmpty()){
             return false;
         };
         return true;
     }
-
 
 
 

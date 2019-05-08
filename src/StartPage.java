@@ -12,7 +12,7 @@ import static db.CustomerDBOperation.showCustomer;
 public class StartPage extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("view\\product_delete.fxml"));
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("view\\product_update.fxml"));
         Parent parent=loader.load();
         Scene scene=new Scene(parent);
         primaryStage.setScene(scene);

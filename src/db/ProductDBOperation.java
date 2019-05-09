@@ -6,20 +6,19 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+
+import java.io.FileNotFoundException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import static commonFunctions.ProductCommonFunction.selectProduct;
-import static commonFunctions.ProductCommonFunction.showWarnningDialog;
-import static commonFunctions.ProductCommonFunction.wrongInput;
+import static commonFunctions.ProductCommonFunction.*;
 
 public class ProductDBOperation {
     private static DbConnection dbConnection;
     private static Statement statement;
     private static String query;
     private static ResultSet resultSet;
-    private static String gender ;
 
 
     public static void addProduct(TextField nameTxt, String category, TextField priceTxt, TextField quantityTxt,
@@ -92,6 +91,27 @@ public class ProductDBOperation {
             statement.execute(query);
         }}
 
+
+        public static  ObservableList<Product> showCategoryProduct(String category) throws ClassNotFoundException ,SQLException{
+        if (category.isEmpty()) {selectCategory();return null;}
+        ObservableList<Product> products=FXCollections.observableArrayList();
+        query="SELECT * FROM product WHERE category='"+category+"'";
+        dbConnection=DbConnection.getConnection();
+        statement=dbConnection.getStatement();
+        resultSet=statement.executeQuery(query);
+        while (resultSet.next()){
+            Product product=new Product();
+            product.setId(resultSet.getInt("id"));
+            product.setName(resultSet.getString("name"));
+            product.setCategory(resultSet.getString("category"));
+            product.setQuantity(resultSet.getInt("quantity"));
+            product.setPrice(resultSet.getFloat("price"));
+            product.setDescription(resultSet.getString("description"));
+            products.add(product);
+
+        }return products;
+
+        }
 
     private static boolean check(TextField nameTxt,String category, TextField priceTxt, TextField quantityTxt,
                                  TextArea descriptionTxt){

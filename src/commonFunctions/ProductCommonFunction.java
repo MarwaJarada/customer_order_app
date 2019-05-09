@@ -9,6 +9,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import java.sql.SQLException;
+
+import static db.ProductDBOperation.showCategoryProduct;
 import static db.ProductDBOperation.showProducts;
 
 public class ProductCommonFunction {
@@ -61,5 +63,30 @@ public class ProductCommonFunction {
             }
         });
     }
+
+    public static void selectCategory(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Be carefull");
+        alert.setHeaderText("Select Category ..");
+        alert.setContentText("You must select Category to show their items ! ");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.OK) {
+                System.out.println("Pressed OK.");
+            }
+        });
+    }
+
+    public static void refreshCategoryProducts(String category,TableView tableView, TableColumn nameCol, TableColumn categoryCol,
+                                       TableColumn quantityCol, TableColumn priceCol, TableColumn descriptionCol)
+            throws SQLException, ClassNotFoundException {
+        ObservableList<Product> products=showCategoryProduct(category);
+        nameCol.setCellValueFactory(new PropertyValueFactory<String, Product>("name"));
+        categoryCol.setCellValueFactory(new PropertyValueFactory<String,Product>("category"));
+        quantityCol.setCellValueFactory(new PropertyValueFactory<String,Product>("quantity"));
+        priceCol.setCellValueFactory(new PropertyValueFactory<String,Product>("price"));
+        descriptionCol.setCellValueFactory(new PropertyValueFactory<String,Product>("description"));
+        tableView.setItems(products);
+    }
+
 
 }

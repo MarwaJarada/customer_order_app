@@ -64,4 +64,10 @@ public class CustomerCommonFunctions {
         });
     }
 
+    public static void showCustomersInMenuBtn(MenuButton menuButton) throws SQLException, ClassNotFoundException {
+        ObservableList<Customer> customers=showCustomer();
+        customers.stream().forEach(customer->menuButton.getItems().add(new MenuItem(customer.getFname())));
+
+    }
+
 }

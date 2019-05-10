@@ -3,13 +3,11 @@ package commonFunctions;
 import entity.Customer;
 import entity.Product;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import java.sql.SQLException;
 
+import static db.CustomerDBOperation.showCustomer;
 import static db.ProductDBOperation.showCategoryProduct;
 import static db.ProductDBOperation.showProducts;
 
@@ -87,6 +85,15 @@ public class ProductCommonFunction {
         descriptionCol.setCellValueFactory(new PropertyValueFactory<String,Product>("description"));
         tableView.setItems(products);
     }
+
+    public static void showProductsInMenuBtn(MenuButton menuButton) throws SQLException, ClassNotFoundException {
+        ObservableList<Product> products=showProducts();
+        products.stream().forEach(product->menuButton.getItems().add(new MenuItem(product.getName())));
+
+
+
+    }
+
 
 
 }

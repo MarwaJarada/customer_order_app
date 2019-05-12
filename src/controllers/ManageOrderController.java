@@ -64,4 +64,6 @@ public class ManageOrderController implements Initializable {
         productSelected=productComboBox.getValue().toString();
     }
 
+    public void dateChoosed(ActionEvent event) {
+    }
 }

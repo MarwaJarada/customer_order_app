@@ -86,14 +86,37 @@ public class ProductCommonFunction {
         tableView.setItems(products);
     }
 
-    public static void showProductsInMenuBtn(MenuButton menuButton) throws SQLException, ClassNotFoundException {
+    public static void showProductsInComboBox(ComboBox<Product> comboBox) throws SQLException, ClassNotFoundException {
         ObservableList<Product> products=showProducts();
-        products.stream().forEach(product->menuButton.getItems().add(new MenuItem(product.getName())));
+        products.stream().forEach(product->comboBox.getItems().add(new Product(product.getName())));
 
 
 
     }
 
+    public static void insertDone(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Done");
+        alert.setHeaderText("Inserting done successfully ..");
+        alert.setContentText("One Product Inserted  ");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.OK) {
+                System.out.println("Pressed OK.");
+            }
+        });
+    }
+
+    public static void updateDone(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Done");
+        alert.setHeaderText("Updating done successfully ..");
+        alert.setContentText("One Product Updated  ");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.OK) {
+                System.out.println("Pressed OK.");
+            }
+        });
+    }
 
 
 }

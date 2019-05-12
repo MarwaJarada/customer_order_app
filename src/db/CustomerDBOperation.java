@@ -133,15 +133,13 @@ public class CustomerDBOperation {
         return true;
     }
 
-    public static String searchCustomrtByName(String name) throws SQLException, ClassNotFoundException {
+    public static int searchCustomrtByName(String name) throws SQLException, ClassNotFoundException {
         dbConnection=DbConnection.getConnection();
         statement=dbConnection.getStatement();
         query="SELECT id FROM CUSTOMER WHERE fname='"+name+"'";
          resultSet=statement.executeQuery(query);
          resultSet.next();
-         resultSet.getInt("id");
-
-         return name;
+         return resultSet.getInt("id");
 
     }
 

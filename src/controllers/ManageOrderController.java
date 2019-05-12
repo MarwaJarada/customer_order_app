@@ -6,10 +6,7 @@ import db.ProductDBOperation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
@@ -24,24 +21,29 @@ public class ManageOrderController implements Initializable {
     @FXML private ComboBox customerComboBox;
     @FXML private ComboBox productComboBox;
     @FXML private TextField quantityTxtField;
-    @FXML private TextField orderDateTxtField;
     @FXML private AnchorPane orderManage;
+    @FXML private DatePicker datePicker;
     private  String customerSelected;
     private String productSelected;
+    private String dateSelected;
+    @FXML
+    public void insertOrder(ActionEvent event){
 
-    public void insertOrder(ActionEvent event) throws SQLException, ClassNotFoundException {
-        System.out.println(CustomerDBOperation.searchCustomrtByName(customerSelected));
-        System.out.println(ProductDBOperation.searchProductByName(productSelected));
-        OrderDBOperation.addOrder(customerSelected,productSelected,quantityTxtField,System.currentTimeMillis());
+        try {
+            OrderDBOperation.addOrder(customerSelected,productSelected,dateSelected,quantityTxtField);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
-
+    @FXML
     public void showOrders(ActionEvent event) {
     }
-
+    @FXML
     public void cancel(ActionEvent event) {
         closeScene(orderManage);
     }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -53,17 +55,16 @@ public class ManageOrderController implements Initializable {
             e.printStackTrace();
        }
     }
-
     @FXML
     public void customerSelected(ActionEvent event) {
         customerSelected=customerComboBox.getValue().toString();
     }
-
     @FXML
     public void productSelected(ActionEvent event) {
         productSelected=productComboBox.getValue().toString();
     }
-
+    @FXML
     public void dateChoosed(ActionEvent event) {
+        dateSelected=datePicker.getValue().toString();
     }
 }

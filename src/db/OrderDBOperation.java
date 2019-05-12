@@ -17,13 +17,13 @@ public class OrderDBOperation {
     private static ResultSet resultSet;
 
 
-    public static void addOrder(String customer, String product, TextField quantityTxt, long date)
+    public static void addOrder(String customer, String product,String date, TextField quantityTxt)
             throws SQLException, ClassNotFoundException {
        String quantity=quantityTxt.getText();
         dbConnection = DbConnection.getConnection();
         statement = dbConnection.getStatement();
-        query = "INSERT INTO customerorder VALUES('" + CustomerDBOperation.searchCustomrtByName(customer)+
-                "','" + ProductDBOperation.searchProductByName(product) + "','" + date + "','" + quantity + "')";
+        query = "INSERT INTO customerorder(customer_id,product_id,order_date,quantity) VALUES('" + CustomerDBOperation.searchCustomrtByName(customer)+
+                "','" + ProductDBOperation.searchProductByName(product) + "','" + date + "','"+4+ "')";
         statement.execute(query);
 
 

@@ -124,14 +124,13 @@ public class ProductDBOperation {
         return true;
     }
 
-    public static String searchProductByName(String name) throws SQLException, ClassNotFoundException {
+    public static int searchProductByName(String name) throws SQLException, ClassNotFoundException {
         dbConnection=DbConnection.getConnection();
         statement=dbConnection.getStatement();
         query="SELECT id FROM product WHERE name='"+name+"'";
         resultSet=statement.executeQuery(query);
         resultSet.next();
-        resultSet.getInt("id");
-        return name;
+        return resultSet.getInt("id");
 
     }
 

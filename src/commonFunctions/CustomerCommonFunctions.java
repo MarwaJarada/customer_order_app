@@ -64,10 +64,40 @@ public class CustomerCommonFunctions {
         });
     }
 
-    public static void showCustomersInMenuBtn(MenuButton menuButton) throws SQLException, ClassNotFoundException {
+    public static void showCustomersComboBox(ComboBox<Customer> comboBox) throws SQLException, ClassNotFoundException {
         ObservableList<Customer> customers=showCustomer();
-        customers.stream().forEach(customer->menuButton.getItems().add(new MenuItem(customer.getFname())));
+        MenuItem menuItem=new MenuItem();
+        customers.stream().forEach(customer->comboBox.getItems().add(new Customer(customer.getFname())));
 
+
+    }
+
+
+    public static void insertDone(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Done");
+        alert.setHeaderText("Inserting done successfully ..");
+        alert.setContentText("One customer Inserted  ");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.OK) {
+                System.out.println("Pressed OK.");
+            }
+        });
+    }
+
+
+    public static void deleteConfirmation(){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Are you sure ? ..");
+        alert.setContentText("If you deleted this customer you will lose his data  ");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.APPLY) {
+                System.out.println("Pressed OK.");
+            }else if (rs==ButtonType.CANCEL){
+
+            }
+        });
     }
 
 }

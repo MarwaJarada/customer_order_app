@@ -21,6 +21,10 @@ public class Product {
     public Product() {
     }
 
+    public Product(String name) {
+        this.name=name;
+    }
+
     public void setId(long id) {
         this.id = id;
     }
@@ -67,5 +71,10 @@ public class Product {
 
     public String getDescription() {
         return description;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
     }
 }

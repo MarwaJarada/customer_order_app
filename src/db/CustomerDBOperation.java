@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import static commonFunctions.CustomerCommonFunctions.insertDone;
 import static commonFunctions.CustomerCommonFunctions.showWarnningDialog;
 
 public class CustomerDBOperation {
@@ -38,7 +39,7 @@ public class CustomerDBOperation {
         query = "INSERT INTO CUSTOMER VALUES('" + id + "','" + fname + "','" + lname + "','" + mobile + "','" + email + "','" +
                 address + "','" + gender + "')";
         statement.execute(query);
-        System.out.println(statement.getUpdateCount() + "Inserted");
+        insertDone();
 
 
     }
@@ -130,6 +131,18 @@ public class CustomerDBOperation {
 
         };
         return true;
+    }
+
+    public static String searchCustomrtByName(String name) throws SQLException, ClassNotFoundException {
+        dbConnection=DbConnection.getConnection();
+        statement=dbConnection.getStatement();
+        query="SELECT id FROM CUSTOMER WHERE fname='"+name+"'";
+         resultSet=statement.executeQuery(query);
+         resultSet.next();
+         resultSet.getInt("id");
+
+         return name;
+
     }
 
 

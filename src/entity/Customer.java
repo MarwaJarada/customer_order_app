@@ -22,6 +22,10 @@ public class Customer {
     public Customer() {
     }
 
+    public Customer(String fname) {
+        this.fname=fname;
+    }
+
     public void setId(long id) {
         this.id = id;
     }
@@ -76,5 +80,10 @@ public class Customer {
 
     public String getGender() {
         return gender;
+    }
+
+    @Override
+    public String toString() {
+        return this.fname;
     }
 }

@@ -43,6 +43,7 @@ public class ProductDBOperation {
         query="INSERT INTO product(name,category,quantity,price,description)" +
                 " VALUES ('"+name+"','"+category+"','"+price+"','"+quantity+"','"+description+"')";
         statement.execute(query);
+        insertDone();
 
     }
 
@@ -89,6 +90,7 @@ public class ProductDBOperation {
             dbConnection = DbConnection.getConnection();
             statement = dbConnection.getStatement();
             statement.execute(query);
+            updateDone();
         }}
 
 
@@ -122,6 +124,16 @@ public class ProductDBOperation {
         return true;
     }
 
+    public static String searchProductByName(String name) throws SQLException, ClassNotFoundException {
+        dbConnection=DbConnection.getConnection();
+        statement=dbConnection.getStatement();
+        query="SELECT id FROM product WHERE name='"+name+"'";
+        resultSet=statement.executeQuery(query);
+        resultSet.next();
+        resultSet.getInt("id");
+        return name;
+
+    }
 
 
 }

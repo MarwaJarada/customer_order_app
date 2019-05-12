@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.sql.SQLException;
 
+import static commonFunctions.CustomerCommonFunctions.insertDone;
 import static commonFunctions.GeneralCommonFunctions.closeScene;
 
 /**

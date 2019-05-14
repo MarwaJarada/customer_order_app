@@ -21,6 +21,10 @@ public class Product {
     public Product() {
     }
 
+    public Product(long id) {
+        this.id=id;
+    }
+
     public Product(String name) {
         this.name=name;
     }

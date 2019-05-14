@@ -8,14 +8,31 @@ public class Order {
     Date date;
     int quantity;
     Double price;
-    ArrayList<Product> products=new ArrayList<>();
+    Double totalPrice;
+    Product product;
 
-    public Order(Customer customer, Date date, int quantity, Double price, ArrayList<Product> products) {
+    public Order(Customer customer, Date date, int quantity, Double totalPrice, Product product) {
         this.customer = customer;
         this.date = date;
         this.quantity = quantity;
-        this.price = price;
-        this.products = products;
+        this.totalPrice = totalPrice;
+        this.product = product;
+    }
+
+    public Order(Customer customer, Product product, int quantity, Double totalPrice) {
+        this.customer = customer;
+        this.date = date;
+        this.quantity = quantity;
+        this.totalPrice = totalPrice;
+        this.product = product;
+    }
+
+    public Order(Customer customer, Product product, int quantity,double price, Double totalPrice) {
+        this.customer = customer;
+        this.date = date;
+        this.quantity = quantity;
+        this.totalPrice = totalPrice;
+        this.product = product;
     }
 
     public Order(){
@@ -35,11 +52,15 @@ public class Order {
     }
 
     public void setPrice(Double price) {
-        this.price = price;
+        this.totalPrice = price;
     }
 
-    public void setProducts(ArrayList<Product> products) {
-        this.products = products;
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public void setTotalPrice(Double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public Customer getCustomer() {
@@ -54,12 +75,16 @@ public class Order {
         return quantity;
     }
 
-    public Double getPrice() {
-        return price;
+    public Double getTotalPrice() {
+        return totalPrice;
     }
 
-    public ArrayList<Product> getProducts() {
-        return products;
+    public Product getProduct() {
+        return product;
+    }
+
+    public Double getPrice() {
+        return price;
     }
 }
 

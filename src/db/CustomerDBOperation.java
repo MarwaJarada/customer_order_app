@@ -17,6 +17,7 @@ import java.util.Optional;
 
 import static commonFunctions.CustomerCommonFunctions.insertDone;
 import static commonFunctions.CustomerCommonFunctions.showWarnningDialog;
+import static commonFunctions.CustomerCommonFunctions.wrongId;
 import static log.Log.log;
 
 public class CustomerDBOperation {
@@ -44,10 +45,9 @@ public class CustomerDBOperation {
         statement = dbConnection.getStatement();
         query = "INSERT INTO CUSTOMER VALUES('" + id + "','" + fname + "','" + lname + "','" + mobile + "','" + email + "','" +
                 address + "','" + gender + "')";
-        statement.execute(query);
-
+        if(statement.execute(query)){
         log("customer",new Customer(id,fname,lname,mobile,email,address,gender));
-        insertDone();
+        insertDone();}else wrongId();
 
 
     }

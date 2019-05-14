@@ -98,4 +98,16 @@ public class CustomerCommonFunctions {
         });
     }
 
+    public static void wrongId(){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Id dublication");
+        alert.setHeaderText("Add a unique ID  ..");
+        alert.setContentText("The id you entered are used ..  ");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.APPLY) {
+                System.out.println("Pressed OK.");
+            }
+        });
+    }
+
 }

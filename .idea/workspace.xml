@@ -3,22 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/javaFxFinalProject/controllers/AddCustomerController.class" afterPath="$PROJECT_DIR$/out/production/javaFxFinalProject/controllers/AddCustomerController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/javaFxFinalProject/controllers/AddProductController.class" afterPath="$PROJECT_DIR$/out/production/javaFxFinalProject/controllers/AddProductController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/javaFxFinalProject/controllers/ManageOrderController.class" afterPath="$PROJECT_DIR$/out/production/javaFxFinalProject/controllers/ManageOrderController.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/javaFxFinalProject/StartPage.class" afterPath="$PROJECT_DIR$/out/production/javaFxFinalProject/StartPage.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/javaFxFinalProject/commonFunctions/CustomerCommonFunctions.class" afterPath="$PROJECT_DIR$/out/production/javaFxFinalProject/commonFunctions/CustomerCommonFunctions.class" />
       <change beforePath="$PROJECT_DIR$/out/production/javaFxFinalProject/db/CustomerDBOperation.class" afterPath="$PROJECT_DIR$/out/production/javaFxFinalProject/db/CustomerDBOperation.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/javaFxFinalProject/db/OrderDBOperation.class" afterPath="$PROJECT_DIR$/out/production/javaFxFinalProject/db/OrderDBOperation.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/javaFxFinalProject/db/ProductDBOperation.class" afterPath="$PROJECT_DIR$/out/production/javaFxFinalProject/db/ProductDBOperation.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/javaFxFinalProject/entity/Customer.class" afterPath="$PROJECT_DIR$/out/production/javaFxFinalProject/entity/Customer.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/javaFxFinalProject/entity/Product.class" afterPath="$PROJECT_DIR$/out/production/javaFxFinalProject/entity/Product.class" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/AddCustomerController.java" afterPath="$PROJECT_DIR$/src/controllers/AddCustomerController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/AddProductController.java" afterPath="$PROJECT_DIR$/src/controllers/AddProductController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ManageOrderController.java" afterPath="$PROJECT_DIR$/src/controllers/ManageOrderController.java" />
+      <change beforePath="$PROJECT_DIR$/out/production/javaFxFinalProject/log/Log file.txt" afterPath="$PROJECT_DIR$/out/production/javaFxFinalProject/log/Log file.txt" />
+      <change beforePath="$PROJECT_DIR$/src/StartPage.java" afterPath="$PROJECT_DIR$/src/StartPage.java" />
+      <change beforePath="$PROJECT_DIR$/src/commonFunctions/CustomerCommonFunctions.java" afterPath="$PROJECT_DIR$/src/commonFunctions/CustomerCommonFunctions.java" />
       <change beforePath="$PROJECT_DIR$/src/db/CustomerDBOperation.java" afterPath="$PROJECT_DIR$/src/db/CustomerDBOperation.java" />
-      <change beforePath="$PROJECT_DIR$/src/db/OrderDBOperation.java" afterPath="$PROJECT_DIR$/src/db/OrderDBOperation.java" />
-      <change beforePath="$PROJECT_DIR$/src/db/ProductDBOperation.java" afterPath="$PROJECT_DIR$/src/db/ProductDBOperation.java" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Customer.java" afterPath="$PROJECT_DIR$/src/entity/Customer.java" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Product.java" afterPath="$PROJECT_DIR$/src/entity/Product.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,7 +66,48 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="AddCustomerController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/AddCustomerController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="249">
+              <caret line="43" column="38" lean-forward="false" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerDBOperation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/db/CustomerDBOperation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="307">
+              <caret line="49" column="30" lean-forward="false" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerCommonFunctions.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/commonFunctions/CustomerCommonFunctions.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="108" column="13" lean-forward="false" selection-start-line="108" selection-start-column="13" selection-end-line="108" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StartPage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/StartPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="14" column="83" lean-forward="false" selection-start-line="14" selection-start-column="83" selection-end-line="14" selection-end-column="83" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -143,7 +175,6 @@
         <option value="$PROJECT_DIR$/src/controllers/SearchProductController.java" />
         <option value="$PROJECT_DIR$/src/db/UserDBOpreation.java" />
         <option value="$PROJECT_DIR$/src/view/order_manage.fxml" />
-        <option value="$PROJECT_DIR$/src/commonFunctions/CustomerCommonFunctions.java" />
         <option value="$PROJECT_DIR$/src/entity/Order.java" />
         <option value="$PROJECT_DIR$/src/commonFunctions/ProductCommonFunction.java" />
         <option value="$PROJECT_DIR$/src/commonFunctions/GeneralCommonFunctions.java" />
@@ -152,12 +183,13 @@
         <option value="$PROJECT_DIR$/src/log/Log file.txt" />
         <option value="$PROJECT_DIR$/src/entity/Product.java" />
         <option value="$PROJECT_DIR$/src/controllers/AddProductController.java" />
-        <option value="$PROJECT_DIR$/src/db/CustomerDBOperation.java" />
         <option value="$PROJECT_DIR$/src/db/OrderDBOperation.java" />
         <option value="$PROJECT_DIR$/src/controllers/ManageOrderController.java" />
         <option value="$PROJECT_DIR$/src/db/ProductDBOperation.java" />
-        <option value="$PROJECT_DIR$/src/StartPage.java" />
         <option value="$PROJECT_DIR$/src/log/Log.java" />
+        <option value="$PROJECT_DIR$/src/db/CustomerDBOperation.java" />
+        <option value="$PROJECT_DIR$/src/StartPage.java" />
+        <option value="$PROJECT_DIR$/src/commonFunctions/CustomerCommonFunctions.java" />
       </list>
     </option>
   </component>
@@ -453,6 +485,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -467,7 +500,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18910742" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18910742" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -788,13 +821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/commonFunctions/CustomerCommonFunctions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="69" column="80" lean-forward="false" selection-start-line="69" selection-start-column="80" selection-end-line="69" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/jre/lib/rt.jar!/java/sql/SQLException.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -852,18 +878,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/AddCustomerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="43" column="37" lean-forward="false" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/ManageOrderController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
           <caret line="49" column="12" lean-forward="false" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -892,22 +911,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/StartPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="14" column="83" lean-forward="false" selection-start-line="14" selection-start-column="83" selection-end-line="14" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/db/CustomerDBOperation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="48" column="17" lean-forward="false" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/db/ProductDBOperation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="139">
@@ -922,6 +925,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
           <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/AddCustomerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="43" column="38" lean-forward="false" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StartPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="14" column="83" lean-forward="false" selection-start-line="14" selection-start-column="83" selection-end-line="14" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/db/CustomerDBOperation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="49" column="30" lean-forward="false" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commonFunctions/CustomerCommonFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="108" column="13" lean-forward="false" selection-start-line="108" selection-start-column="13" selection-end-line="108" selection-end-column="13" />
           <folding />
         </state>
       </provider>

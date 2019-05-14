@@ -3,6 +3,9 @@ package controllers;
 import db.CustomerDBOperation;
 import db.OrderDBOperation;
 import db.ProductDBOperation;
+import entity.Customer;
+import entity.Order;
+import entity.Product;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,6 +18,7 @@ import java.util.ResourceBundle;
 
 import static commonFunctions.CustomerCommonFunctions.showCustomersComboBox;
 import static commonFunctions.GeneralCommonFunctions.closeScene;
+import static commonFunctions.ProductCommonFunction.refreshOrders;
 import static commonFunctions.ProductCommonFunction.showProductsInComboBox;
 
 public class ManageOrderController implements Initializable {
@@ -23,22 +27,29 @@ public class ManageOrderController implements Initializable {
     @FXML private TextField quantityTxtField;
     @FXML private AnchorPane orderManage;
     @FXML private DatePicker datePicker;
-    private  String customerSelected;
-    private String productSelected;
-    private String dateSelected;
+    @FXML private TableView<Order> tableOrder;
+    @FXML private TableColumn customerCol;
+    @FXML private TableColumn productCol;
+    @FXML private TableColumn quantityCol;
+    @FXML private TableColumn priceCol;
+    @FXML private TableColumn totalPriceCol;
+    private  Customer customerSelected=null;
+    private Product productSelected=null;
+    private String dateSelected="";
     @FXML
     public void insertOrder(ActionEvent event){
 
         try {
             OrderDBOperation.addOrder(customerSelected,productSelected,dateSelected,quantityTxtField);
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+           e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
     @FXML
-    public void showOrders(ActionEvent event) {
+    public void showOrders(ActionEvent event) throws SQLException, ClassNotFoundException {
+        refreshOrders(tableOrder,customerCol,productCol,quantityCol,priceCol,totalPriceCol);
     }
     @FXML
     public void cancel(ActionEvent event) {
@@ -57,11 +68,11 @@ public class ManageOrderController implements Initializable {
     }
     @FXML
     public void customerSelected(ActionEvent event) {
-        customerSelected=customerComboBox.getValue().toString();
+        customerSelected=(Customer)customerComboBox.getValue();
     }
     @FXML
     public void productSelected(ActionEvent event) {
-        productSelected=productComboBox.getValue().toString();
+        productSelected=(Product) productComboBox.getValue();
     }
     @FXML
     public void dateChoosed(ActionEvent event) {

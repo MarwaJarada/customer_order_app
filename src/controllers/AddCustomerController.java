@@ -29,7 +29,6 @@ public class AddCustomerController{
     @FXML private TextField addressTxtField;
     @FXML private RadioButton maleRBtn;
     @FXML private RadioButton femaleRBtn;
-    private ToggleGroup toggleGroup;
 
 
     public void clearBtn(ActionEvent event) {

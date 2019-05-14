@@ -67,9 +67,7 @@ public class CustomerCommonFunctions {
     public static void showCustomersComboBox(ComboBox<Customer> comboBox) throws SQLException, ClassNotFoundException {
         ObservableList<Customer> customers=showCustomer();
         MenuItem menuItem=new MenuItem();
-        customers.stream().forEach(customer->comboBox.getItems().add(new Customer(customer.getFname())));
-
-
+        customers.stream().forEach(customer->comboBox.getItems().add(customer));
     }
 
 

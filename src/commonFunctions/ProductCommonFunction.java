@@ -1,7 +1,9 @@
 package commonFunctions;
 
 import entity.Customer;
+import entity.Order;
 import entity.Product;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -9,6 +11,7 @@ import java.sql.SQLException;
 
 import static db.CustomerDBOperation.showCustomer;
 import static db.ProductDBOperation.showCategoryProduct;
+import static db.ProductDBOperation.showOrders;
 import static db.ProductDBOperation.showProducts;
 
 public class ProductCommonFunction {
@@ -88,7 +91,7 @@ public class ProductCommonFunction {
 
     public static void showProductsInComboBox(ComboBox<Product> comboBox) throws SQLException, ClassNotFoundException {
         ObservableList<Product> products=showProducts();
-        products.stream().forEach(product->comboBox.getItems().add(new Product(product.getName())));
+        products.stream().forEach(product->comboBox.getItems().add(product));
 
 
 
@@ -116,6 +119,68 @@ public class ProductCommonFunction {
                 System.out.println("Pressed OK.");
             }
         });
+    }
+
+    public static void selectQuantity(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Be carefull");
+        alert.setHeaderText("Select Quantity ..");
+        alert.setContentText("quantity musn't be zero ! ");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.OK) {
+                System.out.println("Pressed OK.");
+            }
+        });
+    }
+
+    public static void outOfOrder(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Be carefull");
+        alert.setHeaderText("No avaliable product ..");
+        alert.setContentText("This product not avaliable now ! ");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.OK) {
+                System.out.println("Pressed OK.");
+            }
+        });
+    }
+
+    public static void hugeQuantity(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Be carefull");
+        alert.setHeaderText("No avaliable quantity ..");
+        alert.setContentText("This product not avaliable with this quantity ! ");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.OK) {
+                System.out.println("Pressed OK.");
+            }
+        });
+    }
+
+    public static void orderInserted(){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Done");
+        alert.setHeaderText("Inserting done successfully ..");
+        alert.setContentText("One Order Inserted  ");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.OK) {
+                System.out.println("Pressed OK.");
+            }
+        });
+    }
+
+    public static void refreshOrders(TableView<Order> tableView, TableColumn customerCol,TableColumn productCol,
+                                      TableColumn quantityCol,TableColumn priceCol,TableColumn totalPriceCol)
+
+            throws SQLException, ClassNotFoundException {
+        ObservableList<Order> orders=showOrders();
+        customerCol.setCellValueFactory(new PropertyValueFactory<String, Order>("customer"));
+        productCol.setCellValueFactory(new PropertyValueFactory<String,Order>("product"));
+        quantityCol.setCellValueFactory(new PropertyValueFactory<Integer,Order>("quantity"));
+        priceCol.setCellValueFactory(cellData->new SimpleStringProperty(String.valueOf(orders.get(1).getProduct().getPrice())));
+        totalPriceCol.setCellValueFactory(new PropertyValueFactory<Double,Order>("totalPrice"));
+        tableView.setItems(orders);
+
     }
 
 

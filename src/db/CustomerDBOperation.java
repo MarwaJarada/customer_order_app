@@ -1,6 +1,7 @@
 package db;
 
 import entity.Customer;
+import entity.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.RadioButton;
@@ -9,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Optional;
 
 import static commonFunctions.CustomerCommonFunctions.insertDone;
 import static commonFunctions.CustomerCommonFunctions.showWarnningDialog;
@@ -133,14 +135,9 @@ public class CustomerDBOperation {
         return true;
     }
 
-    public static int searchCustomrtByName(String name) throws SQLException, ClassNotFoundException {
-        dbConnection=DbConnection.getConnection();
-        statement=dbConnection.getStatement();
-        query="SELECT id FROM CUSTOMER WHERE fname='"+name+"'";
-         resultSet=statement.executeQuery(query);
-         resultSet.next();
-         return resultSet.getInt("id");
-
+    public static Customer searchCustomrtById(long id) throws SQLException, ClassNotFoundException {
+        Optional<Customer> result=showCustomer().stream().filter(cutomer->cutomer.getId()==id).findFirst();
+        return result.get();
     }
 
 

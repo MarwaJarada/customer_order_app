@@ -1,4 +1,6 @@
 package db;
+import entity.Customer;
+import entity.Order;
 import entity.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,8 +13,10 @@ import java.io.FileNotFoundException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Optional;
 
 import static commonFunctions.ProductCommonFunction.*;
+import static db.CustomerDBOperation.searchCustomrtById;
 
 public class ProductDBOperation {
     private static DbConnection dbConnection;
@@ -124,15 +128,81 @@ public class ProductDBOperation {
         return true;
     }
 
-    public static int searchProductByName(String name) throws SQLException, ClassNotFoundException {
+    public static Product searchProductById(long id) throws SQLException, ClassNotFoundException {
+        Optional<Product> result=showProducts().stream().filter(product->product.getId()==id).findFirst();
+        return result.get();
+    }
+
+    public static double searchPriceProductById(int id) throws SQLException, ClassNotFoundException {
+        Optional<Product> result=showProducts().stream().filter(product->product.getId()==id).findFirst();
+        return result.get().getPrice();
+    }
+
+    public static double productPrice(long id) throws SQLException {
+        query="SELECT price FROM product WHERE id='"+id+"'";
         dbConnection=DbConnection.getConnection();
-        statement=dbConnection.getStatement();
-        query="SELECT id FROM product WHERE name='"+name+"'";
-        resultSet=statement.executeQuery(query);
-        resultSet.next();
-        return resultSet.getInt("id");
+        try {
+            statement=dbConnection.getStatement();
+            resultSet=statement.executeQuery(query);
+            resultSet.next();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            return resultSet.getDouble("price");
+        }
+
+   }
+
+
+    public static int productQuantity(long id) throws SQLException {
+        query="SELECT quantity FROM product WHERE id='"+id+"'";
+        dbConnection=DbConnection.getConnection();
+        try {
+            statement=dbConnection.getStatement();
+            resultSet=statement.executeQuery(query);
+            resultSet.next();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            return resultSet.getInt("quantity");
+        }
 
     }
 
+
+
+    public static ObservableList<Order> showOrders() throws SQLException,ClassNotFoundException{
+        ObservableList<Order> orders= FXCollections.observableArrayList();
+        query="SELECT * FROM customerorder";
+        dbConnection=DbConnection.getConnection();
+        statement=dbConnection.getStatement();
+        resultSet=statement.executeQuery(query);
+        int customerId;int productId;int quantity;double price;double totalPrice;Customer customer;Product product;
+        while (resultSet.next()){
+            customerId=resultSet.getInt("customer_id");
+            productId=resultSet.getInt("product_id");
+            quantity=resultSet.getInt("quantity");
+            totalPrice=resultSet.getDouble("total_price");
+            customer=new Customer(customerId);
+            product=new Product(productId);
+            orders.add(new Order(customer,product,quantity,totalPrice/quantity,totalPrice));
+        }
+        orders.stream().forEach(order -> {
+            try {
+                order.setCustomer(searchCustomrtById(order.getCustomer().getId()));
+                order.setProduct(searchProductById(order.getProduct().getId()));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+
+        return orders;
+    }
 
 }

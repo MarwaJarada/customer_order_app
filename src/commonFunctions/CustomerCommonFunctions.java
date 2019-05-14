@@ -8,6 +8,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.sql.SQLException;
 
+import static db.CustomerDBOperation.deleteCustomer;
 import static db.CustomerDBOperation.showCustomer;
 
 public class CustomerCommonFunctions {
@@ -84,16 +85,22 @@ public class CustomerCommonFunctions {
     }
 
 
-    public static void deleteConfirmation(){
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    public static void deleteConfirmation(long id){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"dd",ButtonType.YES,ButtonType.NO);
         alert.setTitle("Confirmation");
         alert.setHeaderText("Are you sure ? ..");
         alert.setContentText("If you deleted this customer you will lose his data  ");
         alert.showAndWait().ifPresent(rs -> {
-            if (rs == ButtonType.APPLY) {
-                System.out.println("Pressed OK.");
-            }else if (rs==ButtonType.CANCEL){
-
+            if (rs==ButtonType.YES){
+                try {
+                    deleteCustomer(id);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }else if (rs==ButtonType.NO){
+                alert.close();
             }
         });
     }
@@ -105,8 +112,39 @@ public class CustomerCommonFunctions {
         alert.setContentText("The id you entered are used ..  ");
         alert.showAndWait().ifPresent(rs -> {
             if (rs == ButtonType.APPLY) {
-                System.out.println("Pressed OK.");
-            }
+                System.out.println("Pressed OK.");}
+        });
+    }
+
+    public static void wrongInput(){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Wrong Input");
+        alert.setHeaderText("Mobile must't be number  ..");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.APPLY) {
+                System.out.println("Pressed OK.");}
+        });
+    }
+
+    public static void invalidCustomerDelete(){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Invalid Delete");
+        alert.setHeaderText("This customer has orders  ..");
+        alert.setContentText("Delete this customr invalid because he has orders ..  ");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.APPLY) {
+                System.out.println("Pressed OK.");}
+        });
+    }
+
+    public static void idNotFound(){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Invalid Id");
+        alert.setHeaderText("This ID Does'nt exist  ..");
+        alert.setContentText("Id entered are not for a spesific customer ..  ");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.APPLY) {
+                System.out.println("Pressed OK.");}
         });
     }
 

@@ -64,10 +64,12 @@ public class OrderDBOperation {
         resultSet=statement.executeQuery(query);
         resultSet.next();
         int productQuantity= resultSet.getInt("quantity");
-        if (productQuantity==0) ProductCommonFunction.outOfOrder();
-        if (orderQuantity!=0) {
+        if (productQuantity==0) {
+            ProductCommonFunction.outOfOrder();
+            return false;
+        }else if (orderQuantity!=0){
             if (productQuantity >= orderQuantity) return true;
-            else{
+            else {
                 ProductCommonFunction.hugeQuantity();
                 return false;
             }

@@ -15,6 +15,8 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import static commonFunctions.CustomerCommonFunctions.showCustomersComboBox;
@@ -63,6 +65,7 @@ public class ManageOrderController implements Initializable {
         try {
             showCustomersComboBox(customerComboBox);
             showProductsInComboBox(productComboBox);
+            datePicker.setEditable(false);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

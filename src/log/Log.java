@@ -1,6 +1,7 @@
 package log;
 
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import entity.Customer;
 import entity.Order;
 import entity.Product;
@@ -62,4 +63,28 @@ public class Log {
         writer.close();
         printWriter.close();
     }
+
+
+    public static void logDelete(String objectType,Object object) throws IOException {
+        file = new File("src\\log\\Log file.txt");
+        writer = new FileWriter(file, true);
+        printWriter = new PrintWriter(writer);
+        switch (objectType) {
+            case "customer":
+                Customer customer=(Customer)object;
+                printWriter.append("Customer deleted : ID\\" +customer.getId());
+                break;
+            case "product":
+                Product product=(Product) object;
+                printWriter.append("Product deleted : ID\\" +product.getId());
+                break;
+        }
+        printWriter.println();
+        writer.close();
+        printWriter.close();
+    }
+
+
+
+
 }

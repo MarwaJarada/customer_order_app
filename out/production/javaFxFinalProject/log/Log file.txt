@@ -6,3 +6,16 @@ Product Added : Name\e,Category\industry,Price\3.0,Quantity\2,Description\w
 Order Added : product\c,customer\22,Quantity\5,Price\2630.0,Date\null
 Order Added : product\t-shirt,customer\nisreennisreen,Quantity\3,Price\150.0,Date\1557858076525
 Order Added : product\c,customer\nisreennisreen,Quantity\2,Price\1052.0,Date\2019-05-14T18:23:45.839Z
+Customer Added : Name\13,Email\1,Address\1,Mobile\1,Gender\female,Date\2019-05-14T18:58:56.418Z
+Customer deleted : ID\7890
+Customer deleted : ID\5566
+Customer deleted : ID\8745
+Customer deleted : ID\3455
+Product deleted : ID\11
+Order Added : product\iphone x,customer\nisreennisreen,Quantity\3,Price\3000.0,Date\2019-05-14T19:43:00.903Z
+Order Added : product\iphone x,customer\haneenhaneen,Quantity\3,Price\3000.0,Date\2019-05-14T19:45:40.477Z
+Order Added : product\iphone x,customer\MarwaMarwa,Quantity\2,Price\2000.0,Date\2019-05-14T19:55:33.170Z
+Customer deleted : ID\45
+Product Added : Name\a,Category\industry,Price\1.0,Quantity\1,Description\1,Date\2019-05-14T21:36:40.504Z
+Customer deleted : ID\5478
+Customer Added : Name\q2,Email\Q,Address\Q,Mobile\595432,Gender\male,Date\2019-05-14T21:41:41.603Z

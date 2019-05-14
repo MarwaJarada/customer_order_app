@@ -11,14 +11,14 @@ import log.Log;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLTimeoutException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import static commonFunctions.CustomerCommonFunctions.insertDone;
-import static commonFunctions.CustomerCommonFunctions.showWarnningDialog;
-import static commonFunctions.CustomerCommonFunctions.wrongId;
+import static commonFunctions.CustomerCommonFunctions.*;
 import static log.Log.log;
+import static log.Log.logDelete;
 
 public class CustomerDBOperation {
     private static DbConnection dbConnection;
@@ -38,16 +38,26 @@ public class CustomerDBOperation {
         int id = Integer.parseInt(idtxt.getText());
         String fname = fnametxt.getText();
         String lname = lnametxt.getText();
-        int mobile = Integer.parseInt(mobiletxt.getText());
+        int mobile;
+        try {
+            mobile = Integer.parseInt(mobiletxt.getText());
+        }catch (NumberFormatException ex){
+            wrongInput();
+            return;
+        }
         String email = emailTxt.getText();
         String address = addressTxt.getText();
         dbConnection = DbConnection.getConnection();
         statement = dbConnection.getStatement();
         query = "INSERT INTO CUSTOMER VALUES('" + id + "','" + fname + "','" + lname + "','" + mobile + "','" + email + "','" +
                 address + "','" + gender + "')";
-        if(statement.execute(query)){
-        log("customer",new Customer(id,fname,lname,mobile,email,address,gender));
-        insertDone();}else wrongId();
+        try {
+            if(!statement.execute(query)){
+                log("customer",new Customer(id,fname,lname,mobile,email,address,gender));
+                insertDone();}
+        }catch (SQLException ex) {
+            wrongId();
+        }
 
 
     }
@@ -56,31 +66,42 @@ public class CustomerDBOperation {
             query="DELETE FROM customer WHERE id='"+id+"'";
             dbConnection=DbConnection.getConnection();
             statement=dbConnection.getStatement();
-            statement.execute(query);
+            try {
+                statement.execute(query);
+                logDelete("customer",new Customer(id));
+            }catch (SQLException ex){
+                invalidCustomerDelete();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
 
     }
 
-    /**
-     *  This method serach by id , and then return the data to show it in the user interface  for updating
-     */
 
     public static ArrayList<String> searchCustomer(TextField previousId) throws SQLException, ClassNotFoundException {
         Long id=Long.parseLong(previousId.getText());
         dbConnection = DbConnection.getConnection();
         statement = dbConnection.getStatement();
         query = "SELECT * FROM CUSTOMER WHERE id ='"+id+"'";
-        resultSet = statement.executeQuery(query);
-        resultSet.next();
-        ArrayList<String> previousCustomerDetails =
-                new ArrayList<String>();
-        previousCustomerDetails.add(String.valueOf(resultSet.getLong("id")));
-        previousCustomerDetails.add(resultSet.getString("fname"));
-        previousCustomerDetails.add(resultSet.getString("lname"));
-        previousCustomerDetails.add(String.valueOf(resultSet.getLong("mobile")));
-        previousCustomerDetails.add(resultSet.getString("email"));
-        previousCustomerDetails.add(resultSet.getString("address"));
-        previousCustomerDetails.add(resultSet.getString("gender"));
-        return previousCustomerDetails;
+        try {
+            resultSet = statement.executeQuery(query);
+            resultSet.next();
+            ArrayList<String> previousCustomerDetails =
+                    new ArrayList<String>();
+            previousCustomerDetails.add(String.valueOf(resultSet.getLong("id")));
+            previousCustomerDetails.add(resultSet.getString("fname"));
+            previousCustomerDetails.add(resultSet.getString("lname"));
+            previousCustomerDetails.add(String.valueOf(resultSet.getLong("mobile")));
+            previousCustomerDetails.add(resultSet.getString("email"));
+            previousCustomerDetails.add(resultSet.getString("address"));
+            previousCustomerDetails.add(resultSet.getString("gender"));
+            return previousCustomerDetails;
+        }catch (SQLException ex){
+            idNotFound();
+            return null;
+        }
+
 
 
     }

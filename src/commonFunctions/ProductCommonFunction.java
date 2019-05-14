@@ -1,5 +1,6 @@
 package commonFunctions;
 
+import db.ProductDBOperation;
 import entity.Customer;
 import entity.Order;
 import entity.Product;
@@ -9,10 +10,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import java.sql.SQLException;
 
+import static db.CustomerDBOperation.deleteCustomer;
 import static db.CustomerDBOperation.showCustomer;
-import static db.ProductDBOperation.showCategoryProduct;
-import static db.ProductDBOperation.showOrders;
-import static db.ProductDBOperation.showProducts;
+import static db.ProductDBOperation.*;
 
 public class ProductCommonFunction {
 
@@ -183,5 +183,35 @@ public class ProductCommonFunction {
 
     }
 
+    public static void deleteConfirmation(long id){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"dd",ButtonType.YES,ButtonType.NO);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Are you sure ? ..");
+        alert.setContentText("If you deleted this product you will lose it's data  ");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs==ButtonType.YES){
+                try {
+                    ProductDBOperation.deleteProduct(id);
+                }catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }else if (rs==ButtonType.NO){
+                alert.close();
+            }
+        });
+    }
+
+    public static void invalidProductDelete(){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Invalid Delete");
+        alert.setHeaderText("This product has orders  ..");
+        alert.setContentText("Delete this product invalid because he has orders ..  ");
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.APPLY) {
+                System.out.println("Pressed OK.");}
+        });
+    }
 
 }

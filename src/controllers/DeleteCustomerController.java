@@ -20,6 +20,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import static commonFunctions.CustomerCommonFunctions.deleteConfirmation;
 import static commonFunctions.GeneralCommonFunctions.closeScene;
 import static db.CustomerDBOperation.showCustomer;
 import static db.CustomerDBOperation.updateCustomer;
@@ -42,8 +43,10 @@ public class DeleteCustomerController implements Initializable{
 
     public void deleteCustomer(ActionEvent event) throws SQLException, ClassNotFoundException {
         ObservableList<Customer> customers = deleteCustomerTable.getSelectionModel().getSelectedItems();
-        if (customers.get(0)!=null)
-            CustomerDBOperation.deleteCustomer(customers.get(0).getId());
+        if (customers.get(0)!=null){
+            deleteConfirmation(customers.get(0).getId());
+        CustomerCommonFunctions.
+                refreshCustomers(deleteCustomerTable,idCol,fnameCol,lnameCol,mobileCol,emailCol,addressCol,genderCol);}
         else CustomerCommonFunctions.selectCustomer();
 
     }

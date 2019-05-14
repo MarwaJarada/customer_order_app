@@ -33,15 +33,11 @@ public class DeleteProductController implements Initializable {
 
     public void deleteProduct(ActionEvent event) throws SQLException, ClassNotFoundException {
         ObservableList<Product> products = deleteProductTable.getSelectionModel().getSelectedItems();
-        try {
-            if (products.get(0)!=null)
-            ProductDBOperation.deleteProduct(products.get(0).getId());
+            if (products.get(0)!=null){
+                ProductCommonFunction.deleteConfirmation(products.get(0).getId());
+        ProductCommonFunction.
+                refreshProducts(deleteProductTable,nameCol,categorieCol,quantityCol,priceCol,descriptionCol);}
             else ProductCommonFunction.selectProduct();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
 
     }
 

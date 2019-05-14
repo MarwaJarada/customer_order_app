@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import static commonFunctions.CustomerCommonFunctions.idNotFound;
 import static commonFunctions.GeneralCommonFunctions.closeScene;
 
 public class UpdateCustomerController {
@@ -38,7 +39,9 @@ public class UpdateCustomerController {
     }
 
     public void serachCustomer(ActionEvent event) throws SQLException, ClassNotFoundException {
+
         prevoiusCustomrtDetails=CustomerDBOperation.searchCustomer(customerIdTxtField);
+        if (prevoiusCustomrtDetails!=null){
         idTxtField.setText(prevoiusCustomrtDetails.get(0));
         idTxtField.setEditable(false);
         fnameTxtField.setText(prevoiusCustomrtDetails.get(1));
@@ -48,6 +51,8 @@ public class UpdateCustomerController {
         addressTxtField.setText(prevoiusCustomrtDetails.get(5));
         String gender = prevoiusCustomrtDetails.get(6);
         if (gender.equals("female")) femaleRBtn.setSelected(true);
-        else femaleRBtn.setSelected(true);
+        else femaleRBtn.setSelected(true);}
+        idNotFound();
+
     }
 }

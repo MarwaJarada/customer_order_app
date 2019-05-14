@@ -59,7 +59,11 @@ public class ProductDBOperation {
         query="DELETE FROM product WHERE id='"+id+"'";
         dbConnection=DbConnection.getConnection();
         statement=dbConnection.getStatement();
-        statement.execute(query);
+        try {
+            statement.execute(query);
+        }catch (SQLException ex){
+            invalidProductDelete();
+        }
     }
 
 
@@ -88,12 +92,19 @@ public class ProductDBOperation {
             showWarnningDialog();
             return;
         }else {
+            int price; double quantity;
             String name = nameTxt.getText();
-            String price = priceTxt.getText();
-            String quantity = quantityTxt.getText();
+            try {
+                price = Integer.parseInt(priceTxt.getText());
+                quantity = Double.parseDouble(quantityTxt.getText());
+
+            }catch (NumberFormatException ex){
+                wrongInput();
+                return;
+            }
             String description = descriptionTxt.getText();
-            query = "UPDATE product SET name='" + name + "', category ='" + category + "', price='" + price + "',quantity='" + quantity +
-                    "',description='" + description + "' WHERE id='" + id + "'";
+            query = "UPDATE product SET name='" + name + "', category ='" + category + "', price='" + price +
+                    "',quantity='" + quantity +"',description='" + description + "' WHERE id='" + id + "'";
             dbConnection = DbConnection.getConnection();
             statement = dbConnection.getStatement();
             statement.execute(query);

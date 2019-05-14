@@ -4,6 +4,7 @@ import commonFunctions.CustomerCommonFunctions;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
@@ -11,7 +12,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 import static commonFunctions.CustomerCommonFunctions.insertDone;
 import static commonFunctions.GeneralCommonFunctions.closeScene;
@@ -21,7 +24,7 @@ import static commonFunctions.GeneralCommonFunctions.closeScene;
  * @since 4/30/2019
  */
 
-public class AddCustomerController{
+public class AddCustomerController implements Initializable{
     @FXML private AnchorPane addCustomer;
     @FXML private TextField idTxtField;
     @FXML private TextField fnameTxtField;
@@ -47,5 +50,11 @@ public class AddCustomerController{
 
     public void cancelBtn(ActionEvent event) {
         closeScene(addCustomer);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        mobileTxtField.setText("059");
+
     }
 }

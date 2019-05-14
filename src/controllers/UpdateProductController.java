@@ -19,6 +19,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import static commonFunctions.GeneralCommonFunctions.closeScene;
+import static commonFunctions.ProductCommonFunction.wrongInput;
 
 public class UpdateProductController implements Initializable {
     @FXML private AnchorPane productUpdate;
@@ -55,8 +56,8 @@ public class UpdateProductController implements Initializable {
         if (updateProductTable.getSelectionModel().getSelectedItems().get(0)!=null) {
             product= updateProductTable.getSelectionModel().getSelectedItems();
             nameTxtField.setText(product.get(0).getName());
-            priceTxtField.setText(String.valueOf(product.get(0).getPrice()));
-            quantityTxtField.setText(String.valueOf(product.get(0).getQuantity()));
+                priceTxtField.setText(String.valueOf(product.get(0).getPrice()));
+                quantityTxtField.setText(String.valueOf(product.get(0).getQuantity()));
             categoryMenuBtn.setText(product.get(0).getCategory());
             descriptionTxtArea.setText(product.get(0).getDescription());
             itemSelected=product.get(0).getCategory();

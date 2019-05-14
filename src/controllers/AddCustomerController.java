@@ -9,6 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.sql.SQLException;
 
 import static commonFunctions.CustomerCommonFunctions.insertDone;
@@ -38,7 +40,7 @@ public class AddCustomerController{
 
     }
 
-    public void addCustomerBtn(ActionEvent event) throws SQLException, ClassNotFoundException {
+    public void addCustomerBtn(ActionEvent event) throws SQLException, ClassNotFoundException, IOException {
         db.CustomerDBOperation.addCustomer(idTxtField,fnameTxtField,lnameTxtField,mobileTxtField,
                 emailTxtField,addressTxtField,femaleRBtn,maleRBtn);
     }

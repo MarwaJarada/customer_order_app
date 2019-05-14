@@ -2,15 +2,19 @@ package db;
 
 import commonFunctions.ProductCommonFunction;
 import entity.Customer;
+import entity.Order;
 import entity.Product;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import static log.Log.log;
 
 
 public class OrderDBOperation {
@@ -21,20 +25,21 @@ public class OrderDBOperation {
 
 
     public static void addOrder(Customer customer, Product product, String date, TextField quantityTxt)
-            throws SQLException, ClassNotFoundException {
+            throws SQLException, ClassNotFoundException, IOException {
         if (!check(customer,product,date,quantityTxt)){
             showWarnningDialog();
             return;
         }
        int quantity=Integer.parseInt(quantityTxt.getText());
        if (checkQuantity(product.getId(),quantity)){
+           double totalPrice=ProductDBOperation.productPrice(product.getId())*quantity;
         dbConnection = DbConnection.getConnection();
         statement = dbConnection.getStatement();
         query = "INSERT INTO customerorder VALUES('" + customer.getId()+
-                "','" + product.getId()+ "','" + date + "','"+quantity+ "','"+ProductDBOperation.
-                productPrice(product.getId())*quantity+"')";
+                "','" + product.getId()+ "','" + date + "','"+quantity+ "','"+totalPrice+"')";
         statement.execute(query);
         subtractQuantity(product.getId(),quantity);
+        log("order",new Order(customer,product,quantity,totalPrice));
         ProductCommonFunction.orderInserted();
 
        }

@@ -78,7 +78,7 @@ public class Customer {
         return email;
     }
 
-    public String getAddress(String address) {
+    public String getAddress() {
         return this.address;
     }
 
@@ -90,4 +90,5 @@ public class Customer {
     public String toString() {
         return this.fname;
     }
+
 }

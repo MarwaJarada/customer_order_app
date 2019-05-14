@@ -10,6 +10,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -17,6 +18,7 @@ import java.util.Optional;
 
 import static commonFunctions.ProductCommonFunction.*;
 import static db.CustomerDBOperation.searchCustomrtById;
+import static log.Log.log;
 
 public class ProductDBOperation {
     private static DbConnection dbConnection;
@@ -26,7 +28,7 @@ public class ProductDBOperation {
 
 
     public static void addProduct(TextField nameTxt, String category, TextField priceTxt, TextField quantityTxt,
-                                  TextArea descriptionTxt)throws SQLException,ClassNotFoundException{
+                                  TextArea descriptionTxt) throws SQLException, ClassNotFoundException, IOException {
         if (!check(nameTxt,category,priceTxt,quantityTxt,descriptionTxt)){
             showWarnningDialog();
             return;
@@ -47,6 +49,7 @@ public class ProductDBOperation {
         query="INSERT INTO product(name,category,quantity,price,description)" +
                 " VALUES ('"+name+"','"+category+"','"+price+"','"+quantity+"','"+description+"')";
         statement.execute(query);
+        log("product",new Product(name,category,quantity,price,description));
         insertDone();
 
     }

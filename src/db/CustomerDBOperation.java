@@ -6,6 +6,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import log.Log;
+
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,6 +17,7 @@ import java.util.Optional;
 
 import static commonFunctions.CustomerCommonFunctions.insertDone;
 import static commonFunctions.CustomerCommonFunctions.showWarnningDialog;
+import static log.Log.log;
 
 public class CustomerDBOperation {
     private static DbConnection dbConnection;
@@ -24,7 +28,7 @@ public class CustomerDBOperation {
 
     public static void addCustomer(TextField idtxt, TextField fnametxt, TextField lnametxt, TextField mobiletxt,
                                    TextField emailTxt,TextField addressTxt, RadioButton female,RadioButton male)
-            throws SQLException, ClassNotFoundException {
+            throws SQLException, ClassNotFoundException, IOException {
         if (!check(idtxt,fnametxt,lnametxt,mobiletxt,emailTxt,addressTxt,female,male)){
             showWarnningDialog();
             return;
@@ -41,6 +45,8 @@ public class CustomerDBOperation {
         query = "INSERT INTO CUSTOMER VALUES('" + id + "','" + fname + "','" + lname + "','" + mobile + "','" + email + "','" +
                 address + "','" + gender + "')";
         statement.execute(query);
+
+        log("customer",new Customer(id,fname,lname,mobile,email,address,gender));
         insertDone();
 
 
@@ -114,7 +120,7 @@ public class CustomerDBOperation {
             customer.setLname(resultSet.getString("lname"));
             customer.setMobile(resultSet.getInt("mobile"));
             customer.setEmail(resultSet.getString("email"));
-            customer.getAddress(resultSet.getString("address"));
+            customer.setAddress(resultSet.getString("address"));
             customer.setGender(resultSet.getString("gender"));
             customers.add(customer);
         }

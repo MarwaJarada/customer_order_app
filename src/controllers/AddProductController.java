@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.scene.control.MenuItem;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import static commonFunctions.GeneralCommonFunctions.closeScene;
@@ -38,7 +39,7 @@ public class AddProductController{
     }
 
     @FXML
-    public void addProduct(ActionEvent event) throws SQLException, ClassNotFoundException {
+    public void addProduct(ActionEvent event) throws SQLException, ClassNotFoundException, IOException {
         ProductDBOperation.addProduct(nameTxtView,itemSelected,priceTxtView,quantityTxtView,descriptionTxtArea);
 
     }
